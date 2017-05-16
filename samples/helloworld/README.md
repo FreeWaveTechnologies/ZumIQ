@@ -1,7 +1,7 @@
 Hello World Examples
 ====================
 
-Each of the scripts contained herein demonstrates a bare-bones "Hello World" application using a variety of programming languages and/or platforms. They contain the minimum code to get the app up and running, and should not be construed to be an exmaple of any sort of best practice.
+Each of the scripts contained herein demonstrates a bare-bones "Hello World" application using a different programming languages and/or platform. They contain the minimum code to get the app up and running, and should not be construed to be an exmaple of any sort of best practice.
 
 Prerequisites
 -------------
