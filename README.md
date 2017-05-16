@@ -1,3 +1,5 @@
+<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/NEWZUMLINKHOME.png"/>
+
 ZumLink IPR Sample Code and Developer Documentation
 ===================================================
 
