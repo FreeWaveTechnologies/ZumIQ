@@ -8,5 +8,6 @@ Prerequisites
 
 The ZumLink IPR ships with a very stripped-down Linux distribution to conserve storage and minimize firmware update overhead. To get these hello world examples running, you should run the following prerequsite scripts, located in /home/devuser/bin on the unit by default:
 
+* **setdate.sh** - points the Z9-PE to a netork time server to set the system time, required for many installs
 * **install-essentials.sh** - includes utilities like vim, curl, wget, and other developer tools
 * **install-buildtools.sh** - includes compliers and other build tools for supporting dependencies that must be compiled
