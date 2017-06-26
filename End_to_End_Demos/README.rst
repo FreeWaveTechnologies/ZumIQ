@@ -3,7 +3,7 @@ End to End Demos and Hardware Setup
 
 These applications explore using a ZumLink to read Modbus data from a Serial Base, transmitting the data to a different radio, and charting it on the receiving radio.
 
-They both follow the same HardWare Setup which can be found below.
+Both Python and Node-RED follow the **same HardWare Setup which can be found below.**
 
 For each demo there are three moving parts.
 
