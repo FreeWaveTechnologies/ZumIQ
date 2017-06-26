@@ -1,5 +1,5 @@
-End to End Demos
-================
+End to End Demos and Hardware Setup
+===================================
 
 These applications explore using a ZumLink to read Modbus data from a Serial Base, transmitting the data to a different radio, and charting it on the receiving radio.
 
@@ -48,62 +48,8 @@ Multimeter (optional)          For checking correct voltage levels from potentio
 Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 =============================  =====================================================================================================================================
 
-.. note:: FreeWave's "Rainbow Cable" (ASC3610DJ Data Interface Cable) is a cable made specifically for FreeWave and should be ordered from the company.
-.. note:: The terms IOE-4422, IOE, and Serial Base all refer to the same device and can be used interchangeably. For simplicity this document will usually refer to it as **"Serial Base"**
-
-<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/zumlink.jpg"/>
-
-.. figure:: zumlink-ipr-sdk/wiki/images/zumlink.jpg
-    :width: 150px
-
-    **ZumLink IPR**
-
-.. figure:: images/serialBase.jpg
-    :width: 150px
-
-    **IOE-4422 Serial Base**
-
-.. figure:: images/pot.jpg
-    :width: 150px
-
-    **Potentiometer**
-
-.. figure:: images/bb.jpeg
-    :width: 150px
-
-    **Breadboard**
-
-.. figure:: images/LEDS.jpg
-    :width: 150px
-
-    **LEDs**
-
-.. figure:: images/rj.jpg
-    :width: 150px
-
-    **Rj45 to DB9**
-
-.. figure:: images/RainbowCable.JPG
-    :width: 150px
-
-    **Rainbow Cable ASC3610DJ**
-
-.. figure:: images/ethernet.jpg
-    :width: 150px
-
-    **Ethernet to USB**
-
-.. figure:: images/resistor.jpg
-    :width: 150px
-
-    **560Ω Resistor**
-
-.. figure:: images/jumperWires.jpg
-    :width: 150px
-
-    **Jumper Wires**
-
-
+**Note:** FreeWave's "Rainbow Cable" (ASC3610DJ Data Interface Cable) is a cable made specifically for FreeWave and should be ordered from the company.
+**Note:** The terms IOE-4422, IOE, and Serial Base all refer to the same device and can be used interchangeably. For simplicity this document will usually refer to it as **"Serial Base"**
 
 Software Tools
 ~~~~~~~~~~~~~~
@@ -147,7 +93,7 @@ Channel 2 sends power into the red LED.
 Channel 3 sends power to the yellow LED.
 Channel 5 reads the power level coming out of the potentiometer.
 
-.. note:: (optional) Voltage level going into Channel 5 can be read on a computer using a Modbus program like Modbus Poll. The registers for it are 30040/30041 and should be set to **04 Read Input Registers**. The format for these registers should be **Float AB CD**
+**Note:** (optional) Voltage level going into Channel 5 can be read on a computer using a Modbus program like Modbus Poll. The registers for it are 30040/30041 and should be set to **04 Read Input Registers**. The format for these registers should be **Float AB CD**
 
 Serial Base Setup
 ~~~~~~~~~~~~~~~~~
@@ -197,11 +143,11 @@ Default Delay                    60
 Power Mode                       Regular
 ===============================  ===================
 
-.. note:: This demo will use COM port 2 on ZumLink IPR and give the Serial Base a Modbus ID of 1.
+**Note:** This demo will use COM port 2 on ZumLink IPR and give the Serial Base a Modbus ID of 1.
 
-.. note:: To check that Serial Base is set up properly, test the sensor power outputs (Channel 1, 2, or 3) with a multimeter. Check to see that the output is close to 12 volts.
+**Note:** To check that Serial Base is set up properly, test the sensor power outputs (Channel 1, 2, or 3) with a multimeter. Check to see that the output is close to 12 volts.
 
-.. note:: A Port Speed (or BaudRate) of 19200 is fast enough, faster speeds could involve having to use Flow Control which is not covered in this document.
+**Note:** A Port Speed (or BaudRate) of 19200 is fast enough, faster speeds could involve having to use Flow Control which is not covered in this document.
 
 Potentiometer
 ~~~~~~~~~~~~~
@@ -269,7 +215,7 @@ To do this:
 
 1) Change 3rd Octet of ZIPR and Ethernet Adapter IP addresses to 137. Ex 192.168.137.100
 
-.. note:: To change the radio IP address, enter the FreeWave CLI and enter command 'network.ip_address=***.***.137.***'. To change the ethernet adapter IP address, go to 'network settings', find the adapter that corresponds to the connected ZIPR, right click it, choose ipv4 properties, then change the IP address in there
+**Note:** To change the radio IP address, enter the FreeWave CLI and enter command 'network.ip_address=***.***.137.***'. To change the ethernet adapter IP address, go to 'network settings', find the adapter that corresponds to the connected ZIPR, right click it, choose ipv4 properties, then change the IP address in there
 
 2) Click on the adapter bringing internet into the computer (this can be WiFi or ethernet), then at the top of that menu there should be a tab 'Sharing'. Click it.
 
@@ -292,7 +238,7 @@ The procedure for getting two ZIPRs to communicate entails making sure certain s
 
 In each ZIPR, go to FreeWave CLI to set the following configuration values.
 
-.. warning :: If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down, otherwise hardware damage may occurr.
+**Warning:** If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down, otherwise hardware damage may occurr.
 
 =============================  ====================================================================
 **Setting Field**              **Value**
