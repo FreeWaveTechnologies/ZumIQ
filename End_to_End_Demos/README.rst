@@ -13,8 +13,8 @@ For each demo there are three moving parts.
 
 3) Another client application (on a different ZumLink IPR) subscribing to the MQTT sensor data from the broker, and charting the data live on a website.
 
-MQTT demo Hardware Setup
-========================
+Hardware Setup
+==============
 
 Road Map
 --------
