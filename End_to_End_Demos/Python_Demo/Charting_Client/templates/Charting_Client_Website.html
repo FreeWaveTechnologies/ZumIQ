@@ -1,0 +1,86 @@
+<html>
+  <body>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+  <div id="container" style="height: 400px; min-width: 310px"></div>
+
+  <script>
+    var dataCollection = [];
+// tick will recursively hit our API endpoint "/updater" and append the latest data point to our collection
+    function tick(){
+	var t = (new Date()).getTime()
+        $.get('/updater', function(data){
+            dataCollection.push(parseFloat(data))
+            setTimeout('tick()', 1000)
+        });
+    };
+    tick(); 
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
+// Create the chart
+    Highcharts.stockChart('container', {
+        chart: {
+            events: {
+                load: function () {
+// set up the updating of the chart each second, x and y are the real time incoming data points
+                    var series = this.series[0];
+                    setInterval(function () {
+                        i = 0
+                        var x = (new Date()).getTime(), // current time
+			    y = dataCollection[dataCollection.length - 1];
+                        i++
+                        series.addPoint([x, y], true, true);
+                    }, 1000);
+                }
+            }
+        },
+        rangeSelector: {
+            buttons: [{
+                count: 1,
+                type: 'minute',
+                text: '1M'
+            }, {
+                count: 5,
+                type: 'minute',
+                text: '5M'
+            }, {
+                type: 'all',
+                text: 'All'
+            }],
+            inputEnabled: false,
+            selected: 0
+        },
+
+        title: {
+            text: 'Live Sensor Data'
+        },
+
+        exporting: {
+            enabled: false
+        },
+// all the series does is create a range for the chart to fill. We start it off with all 5's, as new
+// data points come in, they'll replace the 5's with real data points
+        series: [{
+            name: 'Creating Range of Values, all y data set to 5 before real data comes in',
+            data: (function () {
+                var data =  [],
+                    time = (new Date()).getTime() - 1000000,
+                    i;
+		for(i = 0; i <= 1000; i++){
+		    data.push([
+                        (time + i * 1000) + 1000,
+			5
+                    ]);
+                }
+		return data
+            }())
+        }]
+    });
+    </script>
+  </body>
+</html>
