@@ -1,7 +1,7 @@
 Python MQTT Demo Software Procedure
 ===================================
 
-**Note** Instead of presenting all the code in this document, there will be a high level overview (pseudo-code) of what the code should be doing. All of the code is provided in a separate file.
+**Note:** Instead of presenting all the code in this document, there will be a high level overview (pseudo-code) of what the code should be doing. All of the code is provided in a separate file.
 
 Software Needed to get App Running
 ----------------------------------
