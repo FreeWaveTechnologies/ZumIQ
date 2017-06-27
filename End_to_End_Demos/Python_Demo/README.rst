@@ -1,3 +1,13 @@
+Source Code
+-----------
+
+The source code for each radio's application will be in the respective folders. "Sensor Client" is for the radio reading modbus registers and "Charting Client" is for the radio receiving and charting the sensor data.
+
+Installation Scripts
+--------------------
+
+Installation Scripts will contain a shell script for each client application. Running each script will take care of downloading all needed packages and providing the finished applications under /home/devuser/apps in the radios. If you are cloning this repo it is best to clone into /home/devuser.
+
 Python MQTT Demo Software Procedure
 ===================================
 
@@ -166,3 +176,5 @@ The basics of this app will be:
 4) In the HTML code for the website add the JavaScript
 
 5) JavaScript will accept incoming sensor data from Flask and feed it into a chart
+
+Example code is in Charting Client.
