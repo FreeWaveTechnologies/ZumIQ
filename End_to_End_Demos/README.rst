@@ -53,7 +53,7 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 
 .. raw:: html
 
-   <p><img width=50 size=10 style="display:inline-block; max-width:30%" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/zumlink.jpg"></p>
+   <p><img width=50 size=10 style="display:inline-block; max-width:30%" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/screenShot.png"></p>
    <p><img width=50 size=10 style="display:inline-block; max-width:30%" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/serialBase.jpg"></p>
    <p><img width=50 size=10 style="display:inline-block; max-width:30%" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/pot.jpg"></p>
 
