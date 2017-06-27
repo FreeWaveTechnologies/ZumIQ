@@ -6,7 +6,7 @@ Python MQTT Demo Software Procedure
 Software Needed to get App Running
 ----------------------------------
 
-.. warning:: The following procedure REQUIRES internet connection. If there are any issues with ZumLink IPR getting internet (check by pinging 8.8.8.8 on the device commandline) the way to fix this is by going to network adapters on the computer, disabling "internet sharing" on the adapter that is the internet source, and then re-enabling it.
+**Warning:** The following procedure REQUIRES internet connection. If there are any issues with ZumLink IPR getting internet (check by pinging 8.8.8.8 on the device commandline) the way to fix this is by going to network adapters on the computer, disabling "internet sharing" on the adapter that is the internet source, and then re-enabling it.
 
 First off:
 
@@ -28,7 +28,7 @@ To install Mosquitto:
 
   sudo apt-get install mosquitto
 
-.. note:: Mosquitto will start running automatically after installation. However it will not start automatically on device bootup.
+**Note:** Mosquitto will start running automatically after installation. However it will not start automatically on device bootup.
 
 We'll also need paho-mqtt, minimalmodbus, and Flask (which are Pip packages):
 
@@ -39,7 +39,7 @@ We'll also need paho-mqtt, minimalmodbus, and Flask (which are Pip packages):
 Picking up the Sensor Information with Minimalmodbus
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: MinimalModbus docs: http://minimalmodbus.readthedocs.io/en/master/index.html
+**Note:** MinimalModbus docs: http://minimalmodbus.readthedocs.io/en/master/index.html
 
 For this project's Python code with comments: End_to_End_Sensor_MQTT_Demos/Python_MQTT_Demo/Sensor_Client_Python_MQTT_Demo/Sensor_Client.py
 
@@ -53,7 +53,7 @@ The process of using MinimalModbus in the code will be as follows:
 
   serialbase = minimalmodbus.Instrument('/dev/ttyO1', 1)
 
-.. warning:: Remember we are using COM2 for this example. If you are using COM1 the directory to listen is on **'/dev/ttyO5'**. The "O" in /dev/ttyO1 is the letter O, not a zero.
+**Warning:** Remember we are using COM2 for this example. If you are using COM1 the directory to listen is on **'/dev/ttyO5'**. The "O" in /dev/ttyO1 is the letter O, not a zero.
 
 3) Now that minimalmodbus is included, and we have the variable 'serialbase' where it knows to listen for ModBus messages, we can read and write registers in this way:
 
@@ -69,7 +69,7 @@ MQTT needs two applications to be running, a broker and a client. We will use th
 Mosquitto Broker
 ~~~~~~~~~~~~~~~~~~~
 
-.. note:: (optional) It's a good idea to setup MQTT communication only using one device at first. Using several terminal windows it's possible to start a broker and have a publisher and subscriber to test that this is working before attempting communicating between two radios.
+**Note:** (optional) It's a good idea to setup MQTT communication only using one device at first. Using several terminal windows it's possible to start a broker and have a publisher and subscriber to test that this is working before attempting communicating between two radios.
 
 It's a good idea to create a config file, to do this navigate to /etc/mosquitto/ and inside there create/edit a file "mosquitto.conf". It's possible you'll have to give yourself access to this file with "sudo chmod 777 mosquitto.conf". This is where mosquitto configuration will go. There's lots of config options, we will only use one line to specify which port Mosquitto will use:
 
@@ -82,8 +82,6 @@ Then to start mosquitto type command
 .. code-block:: none
 
   mosquitto -c mosquitto.conf
-
-To view the example config file: End_to_End_Sensor_MQTT_Demos/Python_MQTT_Demo/Sensor_Client_Python_MQTT_Demo/Sensor_Client_Config.py
 
 Another option to do this without a config file is to use flag -p (for port) and the number of the port. So the command would look like:
 
@@ -116,14 +114,12 @@ The publisher is the sender of messages to the broker. In our example, the publi
   client.connect(<IP Address of Broker>, <Port Number>)
   client.publish(<Topic>, <Message>)
 
-For this project's Python code with comments: End_to_End_Sensor_MQTT_Demos/Python_MQTT_Demo/Sensor_Client_Python_MQTT_Demo/Sensor_Client.py
-
 Getting Mosquitto Communication Going
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have a broker app and a client app, we can put them together to talk.
-In one terminal window start the broker app with command "mosquitto -c mosquitto.conf"
-A successful broker will give a message that looks like this:
+Now that we have a broker program and a client app, we can put them together to talk.
+In one terminal window start the broker with command "mosquitto -c mosquitto.conf"
+A successful broker startup will give a message that looks like this:
 
 .. code-block:: none
 
@@ -146,16 +142,16 @@ Then in a different terminal window start your client application. If the client
 Running Mosquitto across two ZumLink IPRs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To make sure the radios are talking, open a terminal on one of the ZIPRs and ping the other radio. If you receive information back, then communication is successful.
+To make sure the radios are talking, open a terminal on one of the ZumLink IPRs and ping the other radio. If you receive information back, then communication is successful.
 
-Now on the client ZumLink IPR open a terminal and start a mosquitto broker. "mosquitto -c mosquitto.conf"
+Now on the client ZumLink IPR open a terminal and start a Mosquitto broker. "mosquitto -c mosquitto.conf"
 
-In the other broker ZumLink IPR, open a terminal, and start the client program. This should look exactly like it did when we had a client and broker running on the same ZumLink IPR.
+In the other ZumLink IPR, open a terminal, and start the client program. This should look exactly like it did when we had a client and broker running on the same ZumLink IPR.
 
 Building A Website to View Real Time Sensor Information
 -------------------------------------------------------
 
-For the final step we will implement a Flask/JavaScript web application in conjunction with our Mosquitto broker on the receiving ZIPR in order to be able to view our data real time.
+For the final step we will implement a Flask/JavaScript web application to be able to view our data real time.
 
 The basics of this app will be:
 
