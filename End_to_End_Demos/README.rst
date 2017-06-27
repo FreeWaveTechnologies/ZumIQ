@@ -55,7 +55,7 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 
     .. image:: https://raw.githubusercontent.com/jakubroztocil/httpie/master/httpie.png
         :alt: HTTPie compared to cURL
-        :width: 30%
+        :max-width: 30%
         :align: center
 
 .. image:: images/zumlink.jpg
