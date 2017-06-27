@@ -53,17 +53,17 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 
 .. raw:: html
 
-   <img width=50 size=10 style="display:inline-block; max-width:0" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/zumlink.jpg">
-   <img width=50 size=10 style="display:inline-block; max-width:0" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/serialBase.jpg">
-   <img width=50 size=10 style="display:inline-block; max-width:0" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/pot.jpg">
+   <img width=50 size=10 style="display:inline-block; max-width:30px" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/zumlink.jpg">
+   <img width=50 size=10 style="display:inline-block; max-width:30px" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/serialBase.jpg">
+   <img width=50 size=10 style="display:inline-block; max-width:30px" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/pot.jpg">
 
 .. raw:: html
 
-   <img width=50 size=10 style="display:inline-block; max-width:0" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/serialBase.jpg">
+   <img width=50 size=10 style="display:inline-block; max-width:30px" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/serialBase.jpg">
 
 .. raw:: html
 
-   <img width=50 size=10 style="display:inline-block; max-width:0" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/pot.jpg">
+   <img width=50 size=10 style="display:inline-block; max-width:30px" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/pot.jpg">
 
 .. raw:: html
 
