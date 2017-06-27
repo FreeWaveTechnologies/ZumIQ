@@ -60,13 +60,15 @@ The sensor data will be picked up on the Sensor radio connected to the Serial Ba
 
 In order to read ModBus in Node-RED an extra package needs to be downloaded, this package includes all nodes to handle Modbus. To download use this command
 
-"npm install -g node-red-contrib-modbus"
+.. code-block:: none
 
-and when that is done reboot the device. Node-RED will start itself on bootup and you should see the ModBus nodes.
+  "npm install -g node-red-contrib-modbus"
+
+When that is done reboot the device. Node-RED will start itself on bootup and you should see the ModBus nodes.
 
 With our instance of Node-RED open in the browser, drag a "Modbus Read" node into the workspace. Double click it to bring up its properties.
 
-To connect to the Serial Base Modbus registers we set up these should be the specified settings in the "Modbus Read" node:
+To connect to the Serial Base Modbus registers we set up, these should be the specified settings in the "Modbus Read" node:
 
 ===============================  =========================
 **Setting**                      **Value**
@@ -106,9 +108,9 @@ In order to see what is happening in Node-RED the "debug" node will send message
 Turning LED's on and off in Node-RED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are two more steps in order to light up the LEDs when they cross a threshold. First we'll check the volatage level against a high and low threshold we will make, and second we'll turn the lEDs on/off.
+There are two more steps in order to light up the LEDs when they cross a threshold. First we'll check the volatage level against a high and low threshold we will make, and second we'll turn the LEDs on/off.
 
-.. note:: Node-RED will not allow any value other than "msg.payload" to be written to a Modbus register, or to make a chart with. It might be confusing as to why we're about to change msg.payload from a voltage level into an array with modbus register values, and then later turn msg.payload back into the voltage level. We **change msg.payload in order to write certain values to the registers** associated with giving power to the LED's, but after we will want msg.payload to **go back to voltage level so we can make a chart** with those incoming values. We'll store the initial msg.payload inside the variable msg.value to save it so it can be reverted back in the next step.
+**Note:** Node-RED will not allow any value other than "msg.payload" to be written to a Modbus register, or to make a chart with. It might be confusing as to why we're about to change msg.payload from a voltage level into an array with modbus register values, and then later turn msg.payload back into the voltage level. We **change msg.payload in order to write certain values to the registers** associated with giving power to the LED's, but after we will want msg.payload to **go back to voltage level so we can make a chart** with those incoming values. We'll store the initial msg.payload inside the variable msg.value to save it so it can be reverted back in the next step.
 
 Let's drag another "function" node behind the "Converter" node and connect the output of "Converter" to the input of this "function" node, then let's name this node "Limit Checker". Here we want to check if msg.payload is more or less than a set threshold, we will use a low thresh of 2 and high of 10 as an example. Below is the code to go into the Limit Checker function node. What we return is an array with the values we want to write to the Modbus registers. If these array values are set to 5 or "Sensor Power" then 12v will be sent out and the LEDs will light up. If set to 4, there will be no voltage output and the LEDs will be off.
 
@@ -149,27 +151,6 @@ One last step is to set msg.payload **back to the voltage level**. Let's add a "
   msg.payload = msg.value;
   return msg;
 
-Setting Up Communication between Two ZumLink IPRs
--------------------------------------------------
-
-Radio Settings
-~~~~~~~~~~~~~~
-
-The procedure for getting two ZumLink IPRs to communicate entails making sure certain settings on both radios match, and then turning them on. The communication is automatic.
-
-In each ZumLink IPR, go to FreeWave CLI to set the following configuration values.
-
-**Warning** If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down
-
-=============================  ====================================================================
-**Setting Field**              **Value**
------------------------------  --------------------------------------------------------------------
-radioSettings.txPower          min (once radios are at a distance from each other, this can be raised)
-radioSettings.radioFrequency   This number must be the same on both radios
-radioSettings.networkId        This number must be the same on both radios
-radioSettings.nodeId           Each radio must have unique number from 2-65533
-=============================  ====================================================================
-
 Setting up MQTT
 ---------------
 
@@ -178,7 +159,7 @@ At this point we will start talking about **two** Node-RED applications. The app
 Starting the Client
 ~~~~~~~~~~~~~~~~~~~
 
-Node-RED makes this quite simple. In the Node-RED web GUI for the client radio, the nodes on the left side-bar are categorized and under "output" there is a nod called "mqtt". Connecting the output of the Reset Msg.Payload node to the input of an "mqtt" node will make sure we are transmitting the msg.payload to the broker radio. In the settings for this output "mqtt" node we want to make the server address be the IP of the broker radio, and the port number the default 1883. For example: **192.168.137.100:1883**.
+Node-RED makes this quite simple. In the Node-RED web GUI for the Sensor Client radio, the nodes on the left side-bar are categorized and under "output" there is a node called "mqtt". Connecting the output of the 'Reset Msg.Payload' node to the input of an "mqtt" node will make sure we are transmitting the msg.payload to the broker radio. In the settings for this output "mqtt" node we want to make the server address be the IP of the broker radio, and the port number the default 1883. For example: **192.168.137.100:1883**.
 
 This will point the MQTT client to our Charting radio, and hook into Mosquitto's listening port. The topic can be whatever, it just has to match on the mqtt nodes of client and broker, the demo code uses "general" as the topic.
 
@@ -189,16 +170,22 @@ Starting the Broker
 
 If the command "ps -ef" does not show Mosquitto running, then start it with command "mosquitto". By default Mosquitto will use port 1883. This Mosquitto broker is running on the radio outside of Node-RED. The Charting radio's Node-RED instance will have an "mqtt" node that will subscribe to the Mosquitto broker, meaning this Charting radio has the Mosquitto broker as well as a subscriber "mqtt" node.
 
-Since the client app is pointing at the Charting radio's IP address and Mosquitto port, communication should happen automatically. If it isn't make sure that node-RED on the Sensor radio and Mosquitto on the Charting radio are both running.
+Since the Sensor Client app is pointing at the Charting radio's IP address and Mosquitto port, it will be publishing messages automatically if deployed. If it isn't make sure that Node-RED on the Sensor radio and Mosquitto on the Charting radio are both running.
 
 
 Charting MQTT Data Coming Into Broker ZumLink IPR
 -------------------------------------------------
 
-In order to make charts and display a dashboard on Node-RED it's necessary to download the "dashboard" nodes. On the Charting radio, this can be done simply by going to /home/devuser/apps and running command "npm i node-red-dashboard" then reboot the radio. Now the Node-RED web GUI will include a whole new set of nodes for making a dashboard view.
+In order to make charts and display a dashboard on Node-RED it's necessary to download the "dashboard" nodes. On the Charting radio, this can be done simply by going to /home/devuser/apps and running command
 
-In the Charting radio's Node-RED web GUI, drag an "mqtt" node from the **input** section. This will subscribe to the Mosquitto broker and provide an output we can use to connect to a "chart" node. This "mqtt" node should have its "Server" property set as **127.0.0.1"** (pointing at its own IP address since its running the Mosquitto broker) and default port 1883.
+.. code-block:: none
 
-Then drag a "chart" node into the workspace. In its settings we'll click the pencil symbol to add a new "Group", here the name can stay as "Default", but we need to click the pencil on the right hand side of "Tab" field. Inside the "Tab" options we can leave the Name as "Home" and "Icon" as "dashboard", just click the red Add button. Once back at the "Edit Chart Node" everything can stay the same except the "Y-axis" parameters where we want min to be 0 and max to be 12 for the range of voltages that will be fed into the chart.
+  "npm i node-red-dashboard"
 
-The right hand side-bar now has a new tab named "dashboard". To see the dashboard, which will have the chart, click this tab, then on the top right hand corner there's a symbol of an arrow leaving a box. Clicking this symbol will open a new tab with the dashboard that holds the chart of incoming voltage levels being transmitted from the Sensor radio's Node-RED to the Charting radio's Mosquitto broker that then is subscribed to by the Charting radio's Node-RED and charted in the dashboard.
+Then reboot the radio. Now the Node-RED web GUI will include a whole new set of nodes for making a dashboard view.
+
+In the Charting radio's Node-RED web GUI, drag an "mqtt" node from the **input** section. This will subscribe to the Mosquitto broker and provide an output we can use to connect to a "chart" node. This "mqtt" node should have its "Server" property set as **127.0.0.1"** (pointing at its own IP address since it's running the Mosquitto broker) and default port 1883.
+
+Then drag a "chart" node into the workspace. In its settings we'll click the pencil symbol to add a new "Group", here the name can stay as "Default", but we need to click the pencil on the right hand side of "Tab" field. Inside the "Tab" options we can leave the Name as "Home" and "Icon" as "dashboard", just click the red Add button. Once back at the "Edit Chart Node" everything can stay the same except the "Y-axis" parameters where we want min to be 0 and max to be 12 for the range of voltages.
+
+The right hand side-bar now has a new tab named "dashboard". To see the dashboard, which will have the chart, click this tab, then on the top right hand corner there's a symbol of an arrow leaving a box. Clicking this symbol will open a new tab with the dashboard that holds the chart of incoming voltage levels being transmitted from the Sensor radio's Node-RED to the Charting radio's Mosquitto broker that then is subscribed to by the Charting radio's Node-RED client which then charts the incoming data in the dashboard.
