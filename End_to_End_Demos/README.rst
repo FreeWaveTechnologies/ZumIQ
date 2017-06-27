@@ -51,6 +51,56 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 **Note:** FreeWave's "Rainbow Cable" (ASC3610DJ Data Interface Cable) is a cable made specifically for FreeWave and should be ordered from the company.
 **Note:** The terms IOE-4422, IOE, and Serial Base all refer to the same device and can be used interchangeably. For simplicity this document will usually refer to it as **"Serial Base"**
 
+.. figure:: images/zumlink.jpg
+    :width: 150px
+
+    **ZumLink IPR**
+
+.. figure:: images/serialBase.jpg
+    :width: 150px
+
+    **IOE-4422 Serial Base**
+
+.. figure:: images/pot.jpg
+    :width: 150px
+
+    **Potentiometer**
+
+.. figure:: images/bb.jpeg
+    :width: 150px
+
+    **Breadboard**
+
+.. figure:: images/LEDS.jpg
+    :width: 150px
+
+    **LEDs**
+
+.. figure:: images/rj.jpg
+    :width: 150px
+
+    **Rj45 to DB9**
+
+.. figure:: images/RainbowCable.JPG
+    :width: 150px
+
+    **Rainbow Cable ASC3610DJ**
+
+.. figure:: images/ethernet.jpg
+    :width: 150px
+
+    **Ethernet to USB**
+
+.. figure:: images/resistor.jpg
+    :width: 150px
+
+    **560Ω Resistor**
+
+.. figure:: images/jumperWires.jpg
+    :width: 150px
+
+    **Jumper Wires**
+
 Software Tools
 ~~~~~~~~~~~~~~
 
