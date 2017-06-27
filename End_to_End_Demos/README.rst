@@ -1,11 +1,11 @@
 End to End Demos and Hardware Setup
 ===================================
 
-These applications explore using a ZumLink to read Modbus data from a Serial Base, transmitting the data to a different radio, and charting it on the receiving radio.
+These applications explore using a ZumLink IPR to read Modbus data from a Serial Base, transmitting the data to a different radio, and charting it on the receiving radio.
 
 Both Python and Node-RED follow the **same HardWare Setup which can be found below.**
 
-For each demo there are three moving parts.
+For each demo there are three moving parts:
 
 1) A client application picking up sensor data from a Serial Base
 
@@ -18,17 +18,17 @@ Hardware Setup
 
 Road Map
 --------
-These are the goals of building the MQTT Demo App as well as a flow chart of how it works:
+These are the goals of building the MQTT Demo App:
 
 * To upload (or write) and run a small app in the ZumLink IPR Development Environment
 
 * To interface ZumLink IPR with an IOE-4422 (Serial Base) with sensors connected to the Serial Base, and be able to read the sensors in the ZumLink IPR Development Environment
 
-* To make this app in ZumLink IPR actuate devices (LEDS in this case) according to a sensor level that is read from the Serial Base
+* To make this app in ZumLink IPR actuate devices (LEDS in this case) according to a sensor data that is read from the Serial Base
 
-* To wirelessly transfer incoming voltage levels from one ZumLink IPR to another via the MQTT messaging protocol
+* To wirelessly transfer incoming sensor data from one ZumLink IPR to another via the MQTT messaging protocol
 
-* On the receiving ZumLink IPR, to create a live updating chart of the incoming voltage data
+* On the receiving ZumLink IPR, to create a live updating website-chart of the incoming voltage data
 
 Hardware Tools
 ~~~~~~~~~~~~~~
@@ -42,13 +42,14 @@ Ethernet to USB Cable          This will connect the ZumLink IPR's Ethernet port
 RJ45 to DB9 Cable              This cable connects from an RJ45 Serial Port on ZumLink IPR to the Rainbow Cable, ensures communication between radio and Serial Base
 Rainbow Cable (ASC3610DJ)      This cable connects from the DB9 end of the RJ45/DB9 cable to the Serial Base, ensures communication between radio and Serial Base
 Potentiometer                  Will give off a voltage reading to simulate a sensor
-Breadboard                     A board to make a circuit with a potentiometer and LEDs, and then connect it to the Serial Base
+Breadboard                     Board that holds potentiometer, LED's, resistors, and jumper wires
 560Ω 0.5W resistors (2x)       To reduce the Serial Base voltage going to LEDs
 Multimeter (optional)          For checking correct voltage levels from potentiometer and Serial Base
 Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 =============================  =====================================================================================================================================
 
 **Note:** FreeWave's "Rainbow Cable" (ASC3610DJ Data Interface Cable) is a cable made specifically for FreeWave and should be ordered from the company.
+
 **Note:** The terms IOE-4422, IOE, and Serial Base all refer to the same device and can be used interchangeably. For simplicity this document will usually refer to it as **"Serial Base"**
 
 .. raw:: html
@@ -62,12 +63,13 @@ Software Tools
 **Software**                   **Purpose**
 -----------------------------  ----------------------------------------------------------------------------------------------------------
 FreeWave CLI                   Proprietary FreeWave Command Line Interface included in every ZumLink radio used to set radio's parameters
-Tool Suite                     Downloadable FreeWave program used for reading and configuring Serial Bases and other products
-Python 2.7                     Programming language used for writing software
+Tool Suite                     Downloadable FreeWave program used for reading and configuring Serial Base
+Python 2.7                     Programming language
 Minimalmodbus                  Python library for easily reading and writing Modbus registers
 Mosquitto                      Python library for creating MQTT brokers
 paho-mqtt                      Python library for creating MQTT clients
-jQuery                         JavaScript library, will be used here to help integrate the chart into a webpage
+Flask                          Python server framework to serve our website with a sensor data chart
+jQuery                         JavaScript library, will be used here to help integrate sensor data chart into a webpage
 Highcharts                     JavaScript library for creating charts
 =============================  ==========================================================================================================
 
@@ -102,7 +104,7 @@ Channel 5 reads the power level coming out of the potentiometer.
 Serial Base Setup
 ~~~~~~~~~~~~~~~~~
 
-Using Tool Suite, read the Serial Base that you are using with the button "Read Serial Base". Make sure to replicate these settings. In Tool Suite, the **channels** are to ensure communication with the **breadboard**, and the **Stack Settings** are to ensure communication between **ZumLink IPR and Serial Base**.
+Using Tool Suite, read the Serial Base that you are using with the button "Read Serial Base". Make sure to replicate these settings. In Tool Suite, the **Channels** are to ensure communication with the **breadboard**, and the **Stack Settings** are to ensure communication between **ZumLink IPR and Serial Base**.
 
 In Tool Suite, **Channels 1, 2, and 3** should all have the following settings:
 
@@ -149,7 +151,7 @@ Power Mode                       Regular
 
 **Note:** This demo will use COM port 2 on ZumLink IPR and give the Serial Base a Modbus ID of 1.
 
-**Note:** To check that Serial Base is set up properly, test the sensor power outputs (Channel 1, 2, or 3) with a multimeter. Check to see that the output is close to 12 volts.
+**Note:** To check that a Serial Base is set up properly, test that setting channels in Tool Suite as "sensor power" gives outputs of around 12 volts.
 
 **Note:** A Port Speed (or BaudRate) of 19200 is fast enough, faster speeds could involve having to use Flow Control which is not covered in this document.
 
@@ -179,9 +181,9 @@ Putting the breadboard together
 
 Channel 1 is simply the power and GND to the potentiometer. Power goes into the rightmost pin, GND to the leftmost.
 
-Channels 2 and 3 do the same thing, they each give power to an LED on the breadboard through the LED's anode. The LED's anodes need to be connected to GND.
+Channels 2 and 3 each gives power to an LED on the breadboard. The LED's cathode needs to be connected to GND.
 
-Channel 5 needs a cable to connect with the middle pin of potentiometer (output voltage reading).
+Channel 5 needs a cable to connect with the middle pin of potentiometer to read the output voltage.
 
 Using the Python library MinimalModbus we can:
 
@@ -196,7 +198,7 @@ ZumLink IPR Setup
 
 In order to connect the ZumLink IPR and Serial Base, two cables are needed. The Rainbow Cable that connects into the Serial Base, then a RJ45 to DB9 cable that connects the Rainbow Cable to COM port 2 on the ZumLink IPR.
 
-In the FreeWave CLI, settings can be set to match the Serial Base to make sure communication is possible.
+In the FreeWave CLI on the Zumlink IPR, settings can be set to match the Serial Base to make sure communication is possible.
 
 ===============================  ===================
 **Setting**                      **Value**
@@ -215,15 +217,15 @@ Internet into ZumLink IPR
 
 Before we put any code into the ZumLink IPR, we need to **make sure the device is receiving internet**. Open a terminal on the ZumLink IPR and "ping 8.8.8.8". If it returns a stream of data, it's connected.
 
-To do this:
+To give internet access to a radio:
 
-1) Change 3rd Octet of ZIPR and Ethernet Adapter IP addresses to 137. Ex 192.168.137.100
+1) Change 3rd Octet of ZIPR and Ethernet Adapter IP addresses to 137. Ex 192.168.137.100 (remember to change this on the network adapter on the computer talking to your radio as well, otherwise the computer won't be able to communicate at all with the radio)
 
-**Note:** To change the radio IP address, enter the FreeWave CLI and enter command 'network.ip_address=***.***.137.***'. To change the ethernet adapter IP address, go to 'network settings', find the adapter that corresponds to the connected ZIPR, right click it, choose ipv4 properties, then change the IP address in there
+**Note:** To change the radio IP address, enter the FreeWave CLI and enter command 'network.ip_address=***.***.137.***'. To change the ethernet adapter IP address, go to 'network settings', find the adapter that corresponds to the connected ZumLink IPR, right click it, choose ipv4 properties, then change the IP address in there.
 
-2) Click on the adapter bringing internet into the computer (this can be WiFi or ethernet), then at the top of that menu there should be a tab 'Sharing'. Click it.
+2) Double click on the adapter (in Network Settings) bringing internet into the computer (this can be WiFi or ethernet), then at the top of that menu there should be a tab 'Sharing'. Click it.
 
-3) Click to enable sharing internet with connected devices. In the dropdown box select the corresponding connecting adapter for the ZIPR.
+3) Click to enable sharing internet with connected devices. In the dropdown box select the corresponding connecting adapter for the ZumLink IPR.
 
 4) Make sure in FreeWave CLI that the setting "network.Gateway" has the correct IP address corresponding to the IP address of the network adapter where ZIPR is connected.
 
@@ -238,11 +240,11 @@ Setting Up Communication between Two ZIPRs
 Radio Settings
 ~~~~~~~~~~~~~~
 
-The procedure for getting two ZIPRs to communicate entails making sure certain settings on both radios match, and then turning them on. The communication is automatic.
+The procedure for getting two ZIPRs to communicate entails making sure certain settings on both radios match. Then communication will happen automatically. To test for communication, ping the IP address of one radio with the other. If you get a response, then they're talking. Also the CD and TX lights will flash green when communication is established.
 
-In each ZIPR, go to FreeWave CLI to set the following configuration values.
+In each ZumLink IPR, go to FreeWave CLI to set the following configuration values:
 
-**Warning:** If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down, otherwise hardware damage may occurr.
+**Warning:** If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down, otherwise **hardware damage may occurr**.
 
 =============================  ====================================================================
 **Setting Field**              **Value**
