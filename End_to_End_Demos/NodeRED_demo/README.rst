@@ -23,7 +23,7 @@ Before installing Node-RED it is wise to:
 
   sudo apt-get upgrade
 
-.. note:: Before installing Node-RED the date needs to be set and Node.js needs to be installed. To set the date use date command: "date 061920302017" where the first two digits are the month, second two digits are the day, next four digits are the time in UTC, and last four digits are the year (this example says June 19 20:30, 2017). Running the command "install-node.sh" from anywhere in the file system will set up Node.js and NPM.
+**Note:** Before installing Node-RED the date needs to be set and Node.js needs to be installed. To set the date use date command: "date 061920302017" where the first two digits are the month, second two digits are the day, next four digits are the time in UTC, and last four digits are the year (this example says June 19 20:30, 2017). Running the command "install-node.sh" from anywhere in the file system will set up Node.js and NPM.
 
 To install Node-RED on each radio run the command:
 
@@ -43,7 +43,7 @@ After installing both Node-RED and mosquitto, they should be running automatical
 
 If they are not running, reboot the device and then check. If at this point they are still not running by themselves on startup, they can be started with commands "node-red" and "mosquitto"
 
-.. note:: Mosquitto will by default use port 1883 for communications and Node-RED will by default use port 1880 for its web GUI.
+**Note:** Mosquitto will by default use port 1883 for communications and Node-RED will by default use port 1880 for its web GUI.
 
 To see this active instance of Node-RED open a browser and go to the IP address of the radio just like with the web GUI, but go to port number 1880. This is the default Node-RED port.
 
@@ -151,7 +151,7 @@ The procedure for getting two ZumLink IPRs to communicate entails making sure ce
 
 In each ZumLink IPR, go to FreeWave CLI to set the following configuration values.
 
-.. warning :: If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down
+**Warning** If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down
 
 =============================  ====================================================================
 **Setting Field**              **Value**
@@ -177,7 +177,7 @@ This will point the MQTT client to our Charting radio, and hook into Mosquitto's
 Starting the Broker
 ~~~~~~~~~~~~~~~~~~~
 
-.. note:: There are several ways to do this since Node-RED does not come with a stock MQTT broker, only a subscriber. There is an extra node that can be downloaded which is an MQTT broker. In this example we will instead use the Mosquitto MQTT broker which already comes on ZumLink IPRs. Typing commanda "ps -ef" should reveal a running instance of a Mosquitto broker. This is activated on device bootup as a service.
+**Note:** There are several ways to do this since Node-RED does not come with a stock MQTT broker, only a subscriber. There is an extra node that can be downloaded which is an MQTT broker. In this example we will instead use the Mosquitto MQTT broker which already comes on ZumLink IPRs. Typing commanda "ps -ef" should reveal a running instance of a Mosquitto broker. This is activated on device bootup as a service.
 
 If the command "ps -ef" does not show Mosquitto running, then start it with command "mosquitto". By default Mosquitto will use port 1883. This Mosquitto broker is running on the radio outside of Node-RED. The Charting radio's Node-RED instance will have an "mqtt" node that will subscribe to the Mosquitto broker, meaning this Charting radio has the Mosquitto broker as well as a subscriber "mqtt" node.
 
