@@ -68,7 +68,7 @@ Python 2.7                     Programming language
 Minimalmodbus                  Python library for easily reading and writing Modbus registers
 Mosquitto                      Python library for creating MQTT brokers
 paho-mqtt                      Python library for creating MQTT clients
-Flask                          Python server framework to serve our website with a sensor data chart
+Flask                          Python server framework to serve the website with a sensor data chart
 jQuery                         JavaScript library, will be used here to help integrate sensor data chart into a webpage
 Highcharts                     JavaScript library for creating charts
 =============================  ==========================================================================================================
@@ -234,13 +234,13 @@ Troubleshooting Internet Connection
 
 Go into network adapters, click the internet source for your computer, then in 'sharing' tab, turn internet sharing off, click OK, then go back in and turn it back on. ZumLink IPR can remain connected to the computer while doing this.
 
-Setting Up Communication between Two ZIPRs
-------------------------------------------
+Setting Up Communication between Two ZumLink IPRs
+-------------------------------------------------
 
 Radio Settings
 ~~~~~~~~~~~~~~
 
-The procedure for getting two ZIPRs to communicate entails making sure certain settings on both radios match. Then communication will happen automatically. To test for communication, ping the IP address of one radio with the other. If you get a response, then they're talking. Also the CD and TX lights will flash green when communication is established.
+The procedure for getting two ZumLink IPRs to communicate entails making sure certain settings on both radios match. Then communication will happen automatically. To test for communication, ping the IP address of one radio with the other. If you get a response, then they're talking. Also the CD and TX lights will flash green when communication is established.
 
 In each ZumLink IPR, go to FreeWave CLI to set the following configuration values:
 
