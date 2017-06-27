@@ -73,7 +73,7 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 
     **Potentiometer**
 
-.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/bb.jpeg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/bb.jpg
     :width: 150px
 
     **Breadboard**
