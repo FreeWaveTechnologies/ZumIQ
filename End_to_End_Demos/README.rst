@@ -58,52 +58,52 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
         :max-width: 30%
         :align: center
 
-.. image:: images/zumlink.jpg
+.. image:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/zumlink.jpg
     :width: 150px
 
     **ZumLink IPR**
 
-.. figure:: images/serialBase.jpg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/serialBase.jpg
     :width: 150px
 
     **IOE-4422 Serial Base**
 
-.. figure:: images/pot.jpg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/pot.jpg
     :width: 150px
 
     **Potentiometer**
 
-.. figure:: images/bb.jpeg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/bb.jpeg
     :width: 150px
 
     **Breadboard**
 
-.. figure:: images/LEDS.jpg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/LEDS.jpg
     :width: 150px
 
     **LEDs**
 
-.. figure:: images/rj.jpg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/rj.jpg
     :width: 150px
 
     **Rj45 to DB9**
 
-.. figure:: images/RainbowCable.JPG
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/RainbowCable.JPG
     :width: 150px
 
     **Rainbow Cable ASC3610DJ**
 
-.. figure:: images/ethernet.jpg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/ethernet.jpg
     :width: 150px
 
     **Ethernet to USB**
 
-.. figure:: images/resistor.jpg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/resistor.jpg
     :width: 150px
 
     **560Ω Resistor**
 
-.. figure:: images/jumperWires.jpg
+.. figure:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/jumperWires.jpg
     :width: 150px
 
     **Jumper Wires**
