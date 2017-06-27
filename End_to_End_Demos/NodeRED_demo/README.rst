@@ -23,7 +23,11 @@ Before installing Node-RED it is wise to:
 
   sudo apt-get upgrade
 
-**Note:** Before installing Node-RED the date needs to be set and Node.js needs to be installed. To set the date use date command: "date 061920302017" where the first two digits are the month, second two digits are the day, next four digits are the time in UTC, and last four digits are the year (this example says June 19 20:30, 2017). Running the command "install-node.sh" from anywhere in the file system will set up Node.js and NPM.
+**Note:** Before installing Node-RED the date needs to be set and Node.js needs to be installed. To set the date use date command:
+
+"date 061920302017"
+
+where the first two digits are the month, second two digits are the day, next four digits are the time in UTC, and last four digits are the year (this example says June 19 20:30, 2017).
 
 To install Node-RED on each radio run the command:
 
@@ -39,7 +43,7 @@ The file locations for installation are already configured and this command can 
 
   sudo apt-get install mosquitto
 
-After installing both Node-RED and mosquitto, they should be running automatically as a background process. To check type the command "ps -ef" and look for these processes.
+After installing both Node-RED and Mosquitto, they should be running automatically as a background process. To check type the command "ps -ef" and look for these processes.
 
 If they are not running, reboot the device and then check. If at this point they are still not running by themselves on startup, they can be started with commands "node-red" and "mosquitto"
 
@@ -54,7 +58,11 @@ Picking up the Sensor Information in Node-RED
 
 The sensor data will be picked up on the Sensor radio connected to the Serial Base.
 
-In order to read ModBus in Node-RED an extra package needs to be downloaded, this package includes all nodes to handle Modbus. To download use this command "npm install -g node-red-contrib-modbus" and when that is done reboot the device. Node-RED will start itself on bootup and you should see the ModBus nodes.
+In order to read ModBus in Node-RED an extra package needs to be downloaded, this package includes all nodes to handle Modbus. To download use this command
+
+"npm install -g node-red-contrib-modbus"
+
+and when that is done reboot the device. Node-RED will start itself on bootup and you should see the ModBus nodes.
 
 With our instance of Node-RED open in the browser, drag a "Modbus Read" node into the workspace. Double click it to bring up its properties.
 
