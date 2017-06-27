@@ -55,6 +55,45 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 
    <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/zumlink.jpg">
 
+ .. raw:: html
+
+    <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/serialBase.jpg">
+
+.. raw:: html
+
+   <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/pot.jpg">
+
+.. raw:: html
+
+  <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/bb.jpg">
+
+.. raw:: html
+
+   <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/LEDS.jpg">
+
+ .. raw:: html
+
+    <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/rj.jpg">
+
+.. raw:: html
+
+   <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/RainbowCable.jpg">
+
+ .. raw:: html
+
+    <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/ethernet.jpg">
+
+.. raw:: html
+
+   <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/resistor.jpg">
+
+ .. raw:: html
+
+    <img width=50 size=10 src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/jumperWires.jpg">
+
+
+
+
 .. image:: https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/zumlink.jpg
     :width: 150px
 
