@@ -3,6 +3,8 @@ Python MQTT Demo Software Procedure
 
 **Note:** Instead of presenting all the code in this document, there will be a high level overview (pseudo-code) of what the code should be doing. All of the code is provided in a separate file.
 
+The minimal modbus and publisher MQTT code is part of the Sensor Client, while the MQTT subscriber and website-chart will be part of the Charting Client.
+
 Software Needed to get App Running
 ----------------------------------
 
@@ -36,8 +38,8 @@ We'll also need paho-mqtt, minimalmodbus, and Flask (which are Pip packages):
 
   pip install paho-mqtt minimalmodbus Flask
 
-Picking up the Sensor Information with Minimalmodbus
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Picking up the Sensor Information with Minimalmodbus on Sensor Client radio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Note:** MinimalModbus docs: http://minimalmodbus.readthedocs.io/en/master/index.html
 
@@ -67,7 +69,7 @@ Setting up MQTT
 MQTT needs two applications to be running, a broker and a client. We will use the Mosquitto library for a broker, and paho-mqtt for clients.
 
 Mosquitto Broker
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 **Note:** (optional) It's a good idea to setup MQTT communication only using one device at first. Using several terminal windows it's possible to start a broker and have a publisher and subscriber to test that this is working before attempting communicating between two radios.
 
@@ -105,7 +107,7 @@ The subscriber simply finds the Mosquitto broker through the specified port and 
   client.on_message = on_message
   client.connect(<IP Adress>, <Port Number>, <Keep Alive Time>)
 
-The publisher is the sender of messages to the broker. In our example, the publisher will send the sensor information from the ZumLink IPR to a broker on the same radio. Then a subscriber on a separate radio will pick up that data by connecting to the broker. These are the main built in functions this project will use for a publisher client:
+The publisher is the sender of messages to the broker. In this first example, the publisher will send the sensor information from the ZumLink IPR to a broker on the same radio. Then a subscriber on a separate radio will pick up that data by connecting to the broker. These are the main built in functions this project will use for a publisher client:
 
 .. code-block:: python
 
@@ -144,14 +146,14 @@ Running Mosquitto across two ZumLink IPRs
 
 To make sure the radios are talking, open a terminal on one of the ZumLink IPRs and ping the other radio. If you receive information back, then communication is successful.
 
-Now on the client ZumLink IPR open a terminal and start a Mosquitto broker. "mosquitto -c mosquitto.conf"
+Now on the Sensro Client ZumLink IPR open a terminal and start a Mosquitto broker. "mosquitto -c mosquitto.conf"
 
-In the other ZumLink IPR, open a terminal, and start the client program. This should look exactly like it did when we had a client and broker running on the same ZumLink IPR.
+In the Charting Client ZumLink IPR, open a terminal, and start the client program. This should look exactly like it did when we had a client and broker running on the same ZumLink IPR.
 
 Building A Website to View Real Time Sensor Information
 -------------------------------------------------------
 
-For the final step we will implement a Flask/JavaScript web application to be able to view our data real time.
+For the final step we will implement a Flask/JavaScript web application in the Charting Client radio to be able to view our data real time.
 
 The basics of this app will be:
 
@@ -164,7 +166,3 @@ The basics of this app will be:
 4) In the HTML code for the website add the JavaScript
 
 5) JavaScript will accept incoming sensor data from Flask and feed it into a chart
-
-To see the Flask application source code: End_to_End_Sensor_MQTT_Demos/Python_MQTT_Demo/Charting_Client_Python_MQTT_Demo/Charting_Client.py
-
-And this is the HTML/JavaScript charting code: End_to_End_Sensor_MQTT_Demos/Python_MQTT_Demo/Charting_Client_Python_MQTT_Demo/templates/Charting_Client_Website.html
