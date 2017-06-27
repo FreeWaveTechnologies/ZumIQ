@@ -172,7 +172,7 @@ The basic flow will be power out from the channels of the Serial Base into the r
 Putting the breadboard together
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: images/schematic.png
+.. figure:: /home/iggi/Desktop/wikiGH/zumlink-ipr-sdk.wiki/images/screenShot.pngschematic.png
     :width: 400px
 
     **Wiring Schematic**
