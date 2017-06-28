@@ -1,8 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 # This script creates and installs a simple "Hello World" app 
 # using the Node-RED platform.
 
+echo ""
+echo "WARNING: This is a basic script, and there is no error checking."
+echo "If the script runs, but the hello world link doesn't work,"
+echo "review the script output for any errors."
+echo ""
+read -p "Press <Enter> to continue"
 
 # Set up variables
 
@@ -47,6 +53,8 @@ chmod 755 run
 
 ln -s $APPDIR $SERVICEDIR
 
+echo "Waiting 20 seconds to allow service to start up..."
+sleep 20
 
 # and we're done!
 

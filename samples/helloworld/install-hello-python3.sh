@@ -1,7 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 # This script creates and installs a simple "Hello World" app
 # using Python 3 and the Flask web framework.
+
+echo "WARNING: This is a basic script, and there is no error checking."
+echo "If the script runs, but the hello world link doesn't work,"
+echo "review the script output for any errors."
+echo ""
+read -p "Press <Enter> to continue"
 
 # set up variables
 
@@ -45,6 +51,8 @@ chmod 755 run
 
 ln -s $APPDIR $SERVICEDIR
 
+echo "Waiting 5 seconds to allow service to start up..."
+sleep 5
 
 # and we're done!
 
