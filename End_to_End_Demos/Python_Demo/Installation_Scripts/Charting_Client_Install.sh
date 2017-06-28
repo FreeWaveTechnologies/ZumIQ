@@ -1,16 +1,14 @@
 !/bin/bash
 
-echo '>>>>apt-get -y update'
-sudo apt-get update
+echo '>>>>apt-get update'
+sudo apt-get -y update
 
-echo '>>>>>apt-get -y upgrade'
-sudo apt-get upgrade
+echo '>>>> setting date on device'
+sudo apt-get install -y ntpdate
+sudo ntpdate -u pool.ntp.org
 
-echo '>>>>>apt-get vim'
-sudo apt-get install -y vim
-
-echo '>>>>>apt-get python and pip'
-sudo apt-get install -y python python-pip
+echo '>>>>>apt-get vim python and pip'
+sudo apt-get install -y vim python python-pip
 
 echo '>>>>>installing paho-mqtt'
 sudo pip install paho-mqtt
