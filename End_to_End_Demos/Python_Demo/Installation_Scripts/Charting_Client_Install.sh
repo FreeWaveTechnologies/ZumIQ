@@ -18,10 +18,10 @@ echo '>>>>>>COMMON ERROR -- if Flask installation fails, make sure the date on Z
 sudo pip install Flask
 
 echo 'making templates directory'
-mkdir -p /home/devuser/apps/Python_MQTT_Demo/templates
+mkdir -p /home/devuser/apps/Charting_Client/templates
 
-APPFILE=/home/devuser/apps/Python_MQTT_Demo/Charting_Client.py
-JSFILE=/home/devuser/apps/Python_MQTT_Demo/templates/Charting_Client_Website.html
+APPFILE=/home/devuser/apps/Charting_Client/Charting_Client.py
+JSFILE=/home/devuser/apps/Charting_Client/templates/Charting_Client_Website.html
 PYTHONDIR=${PWD%/*}
 
 cat $PYTHONDIR/Charting_Client/Charting_Client.py > $APPFILE
