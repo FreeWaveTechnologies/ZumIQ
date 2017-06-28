@@ -25,7 +25,7 @@ JSFILE=/home/devuser/apps/Python_MQTT_Demo/templates/Charting_Client_Website.htm
 PYTHONDIR=${PWD%/*}
 
 cat $PYTHONDIR/Charting_Client/Charting_Client.py > $APPFILE
-cat $PYHTONDIR/Charting_Client/templates/Charting_Client_Website.html > $JSFILE
+cat $PYTHONDIR/Charting_Client/templates/Charting_Client_Website.html > $JSFILE
 
 sudo chmod 777 /home/devuser/apps/Python_MQTT_Demo/Charting_Client.py
 sudo chmod 777 /home/devuser/apps/Python_MQTT_Demo/templates/Charting_Client_Website.html
