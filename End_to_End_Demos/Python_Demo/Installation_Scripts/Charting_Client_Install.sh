@@ -22,9 +22,10 @@ mkdir -p /home/devuser/apps/Python_MQTT_Demo/templates
 
 APPFILE=/home/devuser/apps/Python_MQTT_Demo/Charting_Client.py
 JSFILE=/home/devuser/apps/Python_MQTT_Demo/templates/Charting_Client_Website.html
+PYTHONDIR=${PWD%/*}
 
-cat /home/devuser/apps/End_to_End_Sensor_MQTT_Demos/Python_MQTT_Demo/Charting_Client_Python_MQTT_Demo/Charting_Client.py > $APPFILE
-cat /home/devuser/apps/End_to_End_Sensor_MQTT_Demos/Python_MQTT_Demo/Charting_Client_Python_MQTT_Demo/templates/Charting_Client_Website.html > $JSFILE
+cat $PYTHONDIR/Charting_Client/Charting_Client.py > $APPFILE
+cat $PYHTONDIR/Charting_Client/templates/Charting_Client_Website.html > $JSFILE
 
 sudo chmod 777 /home/devuser/apps/Python_MQTT_Demo/Charting_Client.py
 sudo chmod 777 /home/devuser/apps/Python_MQTT_Demo/templates/Charting_Client_Website.html
