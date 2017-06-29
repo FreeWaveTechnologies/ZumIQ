@@ -9,7 +9,7 @@ app = Flask(__name__)
 level_received = ""
 level_collection = []
 
-def on_connect(client, userdata, rc):
+def on_connect(client, userdata, rc, x):
     print("Connected with result code", str(rc))
     client.subscribe("demo/sensors")
 
@@ -26,6 +26,7 @@ client.on_message = on_message
 
 ''' connecting and disconnecting to get the latest
     data point '''
+################ CHANGE IP ADDRESS BELOW ###############
 def get_level():
     client.connect("192.168.137.200", 1890, 60)
     client.loop_start()
