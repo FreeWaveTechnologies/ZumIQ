@@ -1,23 +1,22 @@
 !/bin/bash
 
-echo '>>>>apt-get update'
+echo '>>>>apt-get update <<<<'
 sudo apt-get -y update
 
-echo '>>>> setting date on device'
+echo '>>>> setting date on device <<<<'
 sudo apt-get install -y ntpdate
 sudo ntpdate -u pool.ntp.org
 
-echo '>>>>>apt-get vim python and pip'
+echo '>>>>>apt-get vim python and pip <<<<'
 sudo apt-get install -y vim python python-pip
 
-echo '>>>>>installing paho-mqtt'
+echo '>>>>>installing paho-mqtt <<<<'
 sudo pip install paho-mqtt
 
-echo '>>>>>>installing Flask'
-echo '>>>>>>COMMON ERROR -- if Flask installation fails, make sure the date on ZumLink IPR is correctly set to UTC date/time'
+echo '>>>> installing Flask <<<<'
 sudo pip install Flask
 
-echo 'making templates directory'
+echo '>>>> making templates directory <<<<'
 mkdir -p /home/devuser/apps/Charting_Client/templates
 
 APPFILE=/home/devuser/apps/Charting_Client/Charting_Client.py
