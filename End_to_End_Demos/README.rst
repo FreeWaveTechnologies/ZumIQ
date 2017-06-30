@@ -1,6 +1,6 @@
 End to End Demos and Hardware Setup
 ===================================
-**Warning** IP Addresses need to be changed in source code to match user's IP Addresses. The IP addresses in the demo are set to 192.168.137.100 for the Charting Client and 192.168.137.200 for the Sensor Client
+**Warning:** IP Addresses need to be changed in source code to match user's IP Addresses. The IP addresses in the demo are set to 192.168.137.100 for the Charting Client and 192.168.137.200 for the Sensor Client
 
 These applications explore using a ZumLink IPR to read Modbus data from a Serial Base, transmitting the data to a different radio, and charting it on the receiving radio.
 

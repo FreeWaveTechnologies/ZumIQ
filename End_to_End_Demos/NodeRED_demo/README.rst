@@ -1,5 +1,5 @@
-Insatallation Scripts
-=====================
+Node-RED Scripts
+================
 
 This directory contains the scripts for the two Node-RED client applications.
 
@@ -34,14 +34,15 @@ Before installing Node-RED it is wise to:
 
 **Note:** Before installing Node-RED the date needs to be set and Node.js needs to be installed. To set the date use date command:
 
-"date 061920302017"
+"sudo date 061920302017"
 
 where the first two digits are the month, second two digits are the day, next four digits are the time in UTC, and last four digits are the year (this example says June 19 20:30, 2017).
 
-To install Node-RED on each radio run the command:
+To install Node-RED on each radio install Node.js first then Node-RED. Run the commands:
 
 .. code-block:: none
 
+  install-node.sh
   install-node-red.sh
 
 The file locations for installation are already configured and this command can be run from any location in the development environment.
