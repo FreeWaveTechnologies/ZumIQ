@@ -17,7 +17,8 @@ The minimal modbus and publisher MQTT code is part of the Sensor Client, while t
 
 Software Needed to get App Running
 ----------------------------------
-**Warning** IP Addresses need to be changed in source code to match user's IP Addresses. The IP addresses in the demo are set to 192.168.137.100 for the Charting Client and 192.168.137.200 for the Sensor Client
+
+**Warning** IP Addresses need to be changed in source code to match user's IP addresses. The IP addresses in the demo are set to 192.168.137.100 for the Charting Client and 192.168.137.200 for the Sensor Client
 
 **Warning:** The following procedure REQUIRES internet connection. If there are any issues with ZumLink IPR getting internet (check by pinging 8.8.8.8 on the device commandline) the way to fix this is by going to network adapters on the computer, disabling "internet sharing" on the adapter that is the internet source, and then re-enabling it.
 
@@ -29,7 +30,7 @@ First off:
 
   sudo apt-get upgrade
 
-then make sure Python and Pip are installed. If they aren't:
+then make sure Python and pip are installed:
 
 .. code-block:: none
 
@@ -43,7 +44,7 @@ To install Mosquitto:
 
 **Note:** Mosquitto will start running automatically after installation. However it will not start automatically on device bootup.
 
-We'll also need paho-mqtt, minimalmodbus, and Flask (which are Pip packages):
+We'll also need paho-mqtt, minimalmodbus, and Flask (which are pip packages):
 
 .. code-block:: none
 

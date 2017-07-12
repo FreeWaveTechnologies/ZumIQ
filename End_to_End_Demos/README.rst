@@ -4,15 +4,15 @@ End to End Demos and Hardware Setup
 
 These applications explore using a ZumLink IPR to read Modbus data from a Serial Base, transmitting the data to a different radio, and charting it on the receiving radio.
 
-Both Python and Node-RED follow the **same HardWare Setup which can be found below.**
+Both Python and Node-RED follow the **same Hardware Setup which can be found below.**
 
 For each demo there are three moving parts:
 
-1) A client application picking up sensor data from a Serial Base
+1) A client application picking up sensor data from a Serial Base and pushing it to the MQTT broker.
 
-2) A Mosquitto broker dealing with MQTT messages
+2) An MQTT broker (Mosquitto) dealing with MQTT messages
 
-3) Another client application (on a different ZumLink IPR) subscribing to the MQTT sensor data from the broker, and charting the data live on a website.
+3) Another client application (on a different ZumLink IPR) subscribing to the MQTT sensor data from the broker, and charting the data on a website.
 
 Hardware Setup
 ==============
@@ -31,8 +31,8 @@ These are the goals of building the MQTT Demo App:
 
 * On the receiving ZumLink IPR, to create a live updating website-chart of the incoming voltage data
 
-Hardware Tools
-~~~~~~~~~~~~~~
+Required Hardware
+~~~~~~~~~~~~~~~~~
 
 =============================  =====================================================================================================================================
 **Hardware**                   **Purpose**
@@ -57,8 +57,8 @@ Jumper Wires                   Connect resistors, LEDs, etc on Breadboard
 
    <p><img width=100% style="max-width:100%" src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/screenShot.png"></p>
 
-Software Tools
-~~~~~~~~~~~~~~
+Required Software
+~~~~~~~~~~~~~~~~~
 
 =============================  ==========================================================================================================
 **Software**                   **Purpose**
@@ -216,7 +216,9 @@ Com2.flowControl                 off
 Internet into ZumLink IPR
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before we put any code into the ZumLink IPR, we need to **make sure the device is receiving internet**. Open a terminal on the ZumLink IPR and "ping 8.8.8.8". If it returns a stream of data, it's connected.
+Before we put any code into the ZumLink IPR, we need to **make sure the device is connected to the Internet**. Open a terminal on the ZumLink IPR and "ping 8.8.8.8". If it returns a stream of data, it's connected. This is necessary to install software for package repositories.
+
+Everyone's network is different. How you choose to configure your radios is largely up to you (and possibly your coporate IT department). The example below uses Internet Connection Sharing on Windows to give Internet access to a private network connected via a USB-to-Ethernet adapter.
 
 To give internet access to a radio:
 
@@ -245,7 +247,7 @@ The procedure for getting two ZumLink IPRs to communicate entails making sure ce
 
 In each ZumLink IPR, go to FreeWave CLI to set the following configuration values:
 
-**Warning:** If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down, otherwise **hardware damage may occurr**.
+**Warning:** If both radios are within close distance to each other (a foot or less) the txPower needs to be turned down from the default 27dBm, otherwise **hardware damage may occurr**.
 
 =============================  ====================================================================
 **Setting Field**              **Value**
