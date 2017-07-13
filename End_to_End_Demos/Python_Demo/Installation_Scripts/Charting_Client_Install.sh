@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 echo '>>>>apt-get update <<<<'
 sudo apt-get -y update
