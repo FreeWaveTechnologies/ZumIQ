@@ -32,11 +32,11 @@ Before installing Node-RED it is wise to:
 
   sudo apt-get upgrade
 
-**Note:** Before installing Node-RED the date needs to be set and Node.js needs to be installed. To set the date use date command:
+**Note:** Before installing Node-RED the date needs to be set and Node.js needs to be installed. To set the date use the helper script:
 
-"sudo date 061920302017"
+.. code-block:: none
 
-where the first two digits are the month, second two digits are the day, next four digits are the time in UTC, and last four digits are the year (this example says June 19 20:30, 2017).
+  setdate.sh
 
 To install Node-RED on each radio install Node.js first then Node-RED. Run the commands:
 
