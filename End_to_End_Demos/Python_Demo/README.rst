@@ -20,7 +20,7 @@ Software Needed to get App Running
 
 **Warning** IP Addresses need to be changed in source code to match user's IP addresses. The IP addresses in the demo are set to 192.168.137.100 for the Charting Client and 192.168.137.200 for the Sensor Client
 
-**Warning:** The following procedure REQUIRES internet connection. If there are any issues with ZumLink IPR getting internet (check by pinging 8.8.8.8 on the device commandline) the way to fix this is by going to network adapters on the computer, disabling "internet sharing" on the adapter that is the internet source, and then re-enabling it.
+**Warning:** The following procedure REQUIRES an internet connection (for **apt-get** to download packages). If there are any issues with ZumLink IPR getting internet (check by pinging 8.8.8.8 on the device commandline) the way to fix this is by going to network adapters on the computer, disabling "internet sharing" on the adapter that is the internet source, and then re-enabling it.
 
 First off:
 
@@ -50,8 +50,8 @@ We'll also need paho-mqtt, minimalmodbus, and Flask (which are pip packages):
 
   pip install paho-mqtt minimalmodbus Flask
 
-Picking up the Sensor Information with Minimalmodbus on Sensor Client radio
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading the Sensor Information with Minimalmodbus on Sensor Client radio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Note:** MinimalModbus docs: http://minimalmodbus.readthedocs.io/en/master/index.html
 
