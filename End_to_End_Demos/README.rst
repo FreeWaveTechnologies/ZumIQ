@@ -25,7 +25,7 @@ These are the goals of building the MQTT Demo App:
 
 * To interface ZumLink IPR with an IOE-4422 (Serial Base) with sensors connected to the Serial Base, and be able to read the sensors in the ZumLink IPR Development Environment
 
-* To make this app in ZumLink IPR actuate devices (LEDS in this case) according to a sensor data that is read from the Serial Base
+* To make this app in ZumLink IPR actuate devices (LEDs in this case) according to a sensor data that is read from the Serial Base
 
 * To wirelessly transfer incoming sensor data from one ZumLink IPR to another via the MQTT messaging protocol
 
@@ -64,10 +64,10 @@ Required Software
 **Software**                   **Purpose**
 -----------------------------  ----------------------------------------------------------------------------------------------------------
 FreeWave CLI                   Proprietary FreeWave Command Line Interface included in every ZumLink radio used to set radio's parameters
-Tool Suite                     Downloadable FreeWave program used for reading and configuring Serial Base
+Tool Suite                     FreeWave program used for reading and configuring Serial Base. `Download Here <http://www.freewave.com/tool-suite-programming-configuration-monitoring/>`_
 Python 2.7                     Programming language
 Minimalmodbus                  Python library for easily reading and writing Modbus registers
-Mosquitto                      Python library for creating MQTT brokers
+Mosquitto                      MQTT broker
 paho-mqtt                      Python library for creating MQTT clients
 Flask                          Python server framework to serve the website with a sensor data chart
 jQuery                         JavaScript library, will be used here to help integrate sensor data chart into a webpage
@@ -216,9 +216,9 @@ Com2.flowControl                 off
 Internet into ZumLink IPR
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before we put any code into the ZumLink IPR, we need to **make sure the device is connected to the Internet**. Open a terminal on the ZumLink IPR and "ping 8.8.8.8". If it returns a stream of data, it's connected. This is necessary to install software for package repositories.
+Before we put any code into the ZumLink IPR, we need to **make sure the device is connected to the Internet**. Open a terminal on the ZumLink IPR, type "ping 8.8.8.8", and verify that the pings are successful. This is necessary to install software for package repositories.
 
-Everyone's network is different. How you choose to configure your radios is largely up to you (and possibly your coporate IT department). The example below uses Internet Connection Sharing on Windows to give Internet access to a private network connected via a USB-to-Ethernet adapter.
+Everyone's network is different. How you choose to configure your radios is largely up to you (and possibly your corporate IT department). The example below uses Internet Connection Sharing on Windows to give Internet access to a private network connected via a USB-to-Ethernet adapter.
 
 To give internet access to a radio:
 
@@ -235,7 +235,7 @@ To give internet access to a radio:
 Troubleshooting Internet Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Go into network adapters, click the internet source for your computer, then in 'sharing' tab, turn internet sharing off, click OK, then go back in and turn it back on. ZumLink IPR can remain connected to the computer while doing this.
+ICS can sometimes be a bit touchy. Should you lose internet connectivity from the IPR, it may be necessary to reset the sharing on your PC. Go into network adapters, click the internet source for your computer, then in 'sharing' tab, turn internet sharing off, click OK, then go back in and turn it back on. ZumLink IPR can remain connected to the computer while doing this.
 
 Setting Up Communication between Two ZumLink IPRs
 -------------------------------------------------
