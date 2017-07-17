@@ -38,6 +38,11 @@ Before installing Node-RED it is wise to:
 
   setdate.sh
 
+For Firmware FWT1051TB.33
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This firmware version inclued a very sparse development environment, requiring the developer to manually install dependencies. If you're using newer firmware (FWT1060TB.40), skip this section.
+
 To install Node-RED on each radio install Node.js first then Node-RED. Run the commands:
 
 .. code-block:: none
@@ -53,6 +58,14 @@ The file locations for installation are already configured and this command can 
 
   sudo apt-get install mosquitto
 
+In order to read ModBus in Node-RED an extra package needs to be downloaded, this package includes all nodes to handle Modbus. To download use this command
+
+.. code-block:: none
+
+  "npm install -g node-red-contrib-modbus"
+
+When that is done reboot the device. Node-RED will start itself on bootup and you should see the ModBus nodes.
+
 After installing both Node-RED and Mosquitto, they should be running automatically as a background process. To check type the command "ps -ef" and look for these processes.
 
 If they are not running, reboot the device and then check. If at this point they are still not running by themselves on startup, they can be started with commands "node-red" and "mosquitto"
@@ -63,18 +76,40 @@ To see this active instance of Node-RED open a browser and go to the IP address 
 
 Ex: 192.168.137.200:1880
 
+Skip the next section and continue at "Picking up the Sensor Information in Node-RED"
+
+For Firmware FWT1060TB.40
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This firmware version includes a more robust developer environment with many packages already installed. If you're running an earlier version of firmware, see the section above for installation instructions.
+
+First, we need to install the Modbus node for Node-RED. This needs to be installed in Node-RED's default package location, which on ht ZumLink IPR is in */home/devuser/.node-red*:
+
+.. code-block:: none
+
+  cd ~/.node-red
+  npm install node-red-contrib-modbus
+  
+Next, Node.js. Node-RED, and Mosquitto are already installed, but they need to be configured to automatically start. There is a new helper script locationd in */home/devuser/bin* that will automatically create the service and app folders described in App Installation and Startup.
+
+**Usage:**
+
+*add-service.sh <directory_name> <app_path>*
+
+So for Node-RED and Mosquitto, do the following:
+
+.. code-block:: none
+
+  add-service.sh node-red node-red
+  add-service.sh mosquitto mosquitto
+
+
 Picking up the Sensor Information in Node-RED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The sensor data will be picked up on the Sensor radio connected to the Serial Base.
 
-In order to read ModBus in Node-RED an extra package needs to be downloaded, this package includes all nodes to handle Modbus. To download use this command
 
-.. code-block:: none
-
-  "npm install -g node-red-contrib-modbus"
-
-When that is done reboot the device. Node-RED will start itself on bootup and you should see the ModBus nodes.
 
 With our instance of Node-RED open in the browser, drag a "Modbus Read" node into the workspace. Double click it to bring up its properties.
 
