@@ -16,9 +16,11 @@ To learn more about the ZumLink IPR, see the [product page](http://www.freewave.
 Full Documentation
 ------------------
 
-See the [Samples](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/tree/master/samples) for code samples.
+See the [Samples](./samples) for basic code samples.
 
-See the [Wiki](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki) for full documentation.
+See the [End-to-End Demos](./End_to_End_Demos) for examples of complete, distributed applications.
+
+See the [Wiki](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki) for general developer documentation.
 
 
 
