@@ -1,13 +1,7 @@
 Hello World Examples
 ====================
 
-Each of the scripts contained herein demonstrates a bare-bones "Hello World" application using a different programming languages and/or platform. They contain the minimum code to get the app up and running, and should not be construed to be an exmaple of any sort of best practice.
+Each of the scripts contained herein demonstrates a bare-bones "Hello World" application using a different programming languages and/or platform. They contain the minimum code to get the app up and running, and should not be construed to be an example of any sort of best practice.
 
-Prerequisites
--------------
+The scripts include installation of all prerequisites, and can be run from a clean factory image.
 
-The ZumLink IPR ships with a very stripped-down Linux distribution to conserve storage and minimize firmware update overhead. To get these hello world examples running, you should run the following prerequsite scripts, located in /home/devuser/bin on the unit by default:
-
-* **setdate.sh** - points the Z9-PE to a netork time server to set the system time, required for many installs
-* **install-essentials.sh** - includes utilities like vim, curl, wget, and other developer tools
-* **install-buildtools.sh** - includes compliers and other build tools for supporting dependencies that must be compiled
