@@ -9,9 +9,9 @@ from Sensor_Client_Config import high_threshold, low_threshold
 serialbase = minimalmodbus.Instrument('/dev/ttyO1', 1)
 
 ''' After creating a client we connect to the ZumLink IPR itself, where the Mosquitto
-broker is running, and publish sensor data to this broker on port 1890 on topic demo/sensors'''
+broker is running, and publish sensor data to this broker on port 1883 on topic demo/sensors'''
 mqttc = mqtt.Client("Sensor Levels")
-mqttc.connect("127.0.0.1", 1890)
+mqttc.connect("127.0.0.1", 1883)
 mqttc.publish("demo/sensors", "Hello this is sensors!")
 
 def read_pot_level():
@@ -27,22 +27,18 @@ def print_alert(over_under):
     print "High threshold: " + str(high_threshold) + ". Low threshold: " + str(low_threshold)
     mqttc.publish("demo/sensors", pot_level)
 
-def change_LED(register, on_off):
-    ''' Writing to the "channel mode" register of each LED turns the LED on or off. 4 is off, 5 is on'''
-    serialbase.write_register(register, on_off)
-
 while True:
     pot_level = read_pot_level()
     if pot_level >= high_threshold:
     	print_alert("over")
-    	change_LED(40018,5)
-	change_LED(40017,4)
+        serialbase.write_bit(2,0)
+        serialbase.write_bit(1,1)
     elif pot_level <= low_threshold:
     	print_alert("under")
-    	change_LED(40017, 5)
-	change_LED(40018, 4)
+        serialbase.write_bit(2,1)
+        serialbase.write_bit(1,0)
     else:
-    	change_LED(40018, 4)
-    	change_LED(40017, 4)
+        serialbase.write_bit(2,0)
+        serialbase.write_bit(1,0)
     	print_pot_level()
     time.sleep(.5)

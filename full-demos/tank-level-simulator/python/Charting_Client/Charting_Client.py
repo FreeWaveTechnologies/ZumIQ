@@ -28,7 +28,7 @@ client.on_message = on_message
     data point '''
 ################ CHANGE IP ADDRESS BELOW ###############
 def get_level():
-    client.connect("192.168.137.200", 1890, 60)
+    client.connect("192.168.111.100", 1883, 60)
     client.loop_start()
     time.sleep(0.1)
     client.loop_stop()

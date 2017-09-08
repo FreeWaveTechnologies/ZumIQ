@@ -1,6 +1,15 @@
 #!/bin/bash
 
-echo '>>>>apt-get update <<<<'
+sudo apt-get update
+sudo apt-get install -y vim python python-pip
+sudo pip install -y paho-mqtt flask
+
+cp -r ../Charting_Client /home/devuser/apps
+
+
+D#
+B
+#echo '>>>>apt-get update <<<<'
 sudo apt-get -y update
 
 echo '>>>> setting date on device <<<<'
