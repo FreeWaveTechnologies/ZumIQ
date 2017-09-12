@@ -11,8 +11,6 @@ In order to pull packages and install dependencies, a connection to the Internet
 
 Setting up a path to the Internet depends on your network infrastructure and IT department. For example, you may be able to attach your radios to the corporate intranet, or use NAT to link private radio network attached to your computer to your corporate intranet.
 
-In any event, to test connectivity to the internet, type `ping 8.8.8.8` at the Linux command line. If you get a positive response, you're connected.
-
 ### Configure network settings on radio
 
 On the radio, you will need to configure the network settings on teh Network pages of the CLI to match your external network configuration. These examples will used the default radio settings:
@@ -23,6 +21,8 @@ On the radio, you will need to configure the network settings on teh Network pag
     nameserver_address1=8.8.8.8
     nameserver_address2=8.8.4.4
     
+To test connectivity to the internet, type `ping 8.8.8.8` at the Linux command line. If you get a positive response, you're connected.
+
 ## Configure Serial Port
 
 Configure COM2 on a ZumLink radio to have the following settings (see the [ZumIQ Wiki](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki) or the [Z9-P/PE User Manual](http://support.freewave.com/knowledge-base/z9-pe-user-manual/) for details on how to configure the device):

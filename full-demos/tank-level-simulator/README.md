@@ -1,6 +1,6 @@
-# Overview
+# Tank Level Simulator
 
-This application is a simple end-to-end demonstration of ZumLink IPR programmability.
+This application is a simple end-to-end demonstration of ZumLink IPR programmability. It simulates monitoring of a oil or water tank using a level sensor (represented by a potentiometer), and indicates when a high or low threshold has been exceeded by illuminating LEDs. It will also publish sensor data to an MQTT broker. A second app will subscribe to the MQTT broker and chart the level data in a web page.
 
 ## Goal:
 

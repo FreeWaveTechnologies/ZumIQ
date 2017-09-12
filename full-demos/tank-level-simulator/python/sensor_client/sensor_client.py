@@ -11,7 +11,7 @@ import time
 import minimalmodbus
 import paho.mqtt.client as mqtt
 
-from Sensor_Client_Config import high_threshold, low_threshold
+from sensor_client_config import high_threshold, low_threshold
 
 MOSQUITTO_ADDRESS = '127.0.0.1'
 MOSQUITTO_PORT = 1883

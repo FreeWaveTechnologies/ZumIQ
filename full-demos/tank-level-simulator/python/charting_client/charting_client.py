@@ -44,7 +44,7 @@ def get_level():
 
 @app.route('/')
 def index():
-    return render_template('Charting_Client_Website.html')
+    return render_template('charting_client_website.html')
 
 ''' /updater is an API endpoint to retrieve the latest
     data point for our JS handler '''

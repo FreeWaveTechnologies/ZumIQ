@@ -2,8 +2,8 @@
 
 **Hardware**                           | **Purpose**
 -------------------------------------- | -----------
-ZumIQ-enabled ZumLink Z9-P/PE (1 or 2) | Radio with Linux Development Environment. Two radios are needed to demonstrate app communication over a radio network, but both apps can be run on the same unit if necessary.
-IOE-4422                               | [FreeWave I/O Expansion Serial Base](http://www.freewave.com/products/ioex/). Only the first five channels will be used, so any model will work
+Powered ZumIQ-enabled ZumLink Z9-P/PE  | Radio with Linux Development Environment. This demonstration will use one radio for simplicity, but the Sensor and Client app can be run on separate radios if desired.
+IOE-4422                               | [FreeWave I/O Expansion Serial Base](http://www.freewave.com/products/ioex/). Only the first five channels will be used, so n IOE-4404 or IOE-4440 could also be used.
 12V Power Supply                       | FreeWave P/N: EMD1280UX. Used to power the Serial Base
 USB Ethernet Adapter                   | Optional. Used to create a separate local network attached to a computer.
 RJ45 to DB9 Null Modem Cable           | FreeWave P/N: ECD2408ED. Used with "Rainbow" data cable to connect IOE-44XX to Z9-P/PE.
@@ -19,11 +19,21 @@ Jumper Wires                           | For wiring everything together.
 
 ## Serial Base Setup
 
-[Tool Suite](http://www.freewave.com/tool-suite-programming-configuration-monitoring/) will be used to configure the channel behavior on the Serial Base. This document will only cover the settings required for the demo. For detailed instruction on setting up an IOEX-4422 Serial Base using Tool Suite, see the [IO Expansion User Manual and Reference Guide](http://support.freewave.com/knowledge-base/io-expansion-module-user-manual/)
+While the Serial Base can be configured using Modbus directly (See the [IO Expansion User Manual and Reference Guide](http://support.freewave.com/knowledge-base/io-expansion-module-user-manual/)), generally it is easier to use 
+[Tool Suite](http://www.freewave.com/tool-suite-programming-configuration-monitoring/).
 
-The Tool Suite user manual and downloads are available on the [Tool Suite](http://www.freewave.com/tool-suite-programming-configuration-monitoring/) product page.
+This document will only cover the steps required at a high level. For detailed information on using Tool Suite to configure the Serial Base, see the documentation at the links above.
 
-### Channel Configuration
+### Basic Procedure
+
+1. Connect your computer to the Serial Base using an USB-to-Serial cable connected to the "Rainbow" data cable
+2. Power the Serial Base
+3. Launch Tool Suite
+4. Select the "Configuration" tool
+5. Select "Add Network", give it a name, and click "Next"
+6. Ensure that "Network Type" is "Serial", and click "Finish"
+7. Select the COM port associated with the USB-to-Serial cable, then select "Read Serial Base"
+8. Select the Universal Channels tab, and configure channels 1,2, and 3 as follows:
 
 #### Channel 1
 
@@ -45,6 +55,9 @@ I/O Mode             | Sensor Power
 Apply Default Output | Yes
 Default Output       | Off
 
+
+9. Select the Input-Only Channels tab, and configure channel 5 as follows:
+
 #### Chanel 5
 
 This channel is used to monitor the output voltage from the potentiometer
@@ -58,6 +71,9 @@ Voltage Span       | 12000
 Resistor Pull      | Pull-up
 Filtering          | None
 Integer Type       | Unsigned
+
+
+10. Select the Stack Settings tab, and configure as follows:
 
 #### Stack Settings
 
@@ -78,6 +94,10 @@ Long Integer Word Order         | Regular
 Default Delay                   | 60
 Power Mode                      | Regular
 
+
+11. Click the "Program All" button to the upper-right of the tabs
+12. Disconnect the "Rainbow" cable from the USB-to-Serial cable and connect it to the RJ45-to-Serial cable, as described in [Hardware Setup](hardware-setup.md)
+
 ### Verifying Configuration
 
 Once configured with Tool Suite, power cycle the Serial Base. With a multimeter, test Channel 1 to ensure that it's providing 12V, and test Channels 2 and 3 to verify that they are providing 0V.
@@ -95,15 +115,6 @@ Next, set up the components on a breadboard and connect them to the channels on 
 <img src="../images/schematic.png" />
 
 <img width="75%" src="../images/breadboard.png" />
-
-## Z9-P/PE Setup
-
-The "monitor" radio represents the radio at the network edge, connected to sensors and actuators, in our case, the potentiometer and LEDs.
-
-### Connect Hardware
-
-Connect the 10-pin data port on the top of the Serial Base to the right-hand serial port (COM2) on the ZumLink radio using the "Rainbow" data cable connected to the RJ45-to-DB9 null modem cable.
-
 
 ## Next Steps
 
