@@ -1,5 +1,16 @@
 #!/bin/bash
 
+sudo apt-get update
+sudo apt-get install -y python-pip
+
+install-mosquitto.sh
+
+sudo pip install paho-mqtt minimalmodbus
+
+cp -r ../Sensor_Client /home/devuser/apps/Sensor_Client
+
+ln -s ~/services/Sensor_Client ~/apps/Sensor_Client
+
 echo '>>>> apt-get update <<<<'
 sudo apt-get update
 
