@@ -1,8 +1,17 @@
-#!/usr/bin/python2.7
+""" Tank Level Simulation Charting Client
 
-import paho.mqtt.client as mqtt
-from flask import Flask, render_template
+This script demonstrates the following:
+- Subscribe to sensor data via MQTT
+- Display sensor data in a web page
+"""
+
 import time
+
+from flask import Flask, render_template
+import paho.mqtt.client as mqtt
+
+MOSQUITTO_ADDRESS = '127.0.0.1'
+MOSQUITTO_PORT = 1883
 
 app = Flask(__name__)
 
@@ -28,7 +37,7 @@ client.on_message = on_message
     data point '''
 ################ CHANGE IP ADDRESS BELOW ###############
 def get_level():
-    client.connect("192.168.111.100", 1883, 60)
+    client.connect(MOSQUITTO_ADDRESS, MOSQUITTO_PORT, 60)
     client.loop_start()
     time.sleep(0.1)
     client.loop_stop()
