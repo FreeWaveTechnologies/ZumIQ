@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get install -y vim python python-pip
 sudo pip install paho-mqtt flask
 
-cp -r ../Charting_Client ~/apps/Charting_Client
+cp -r ../charting_client ~/apps/charting_client
 
-ln -s ~/apps/Charting_Client ~/service/Charting_Client
+ln -s ~/apps/charting_client ~/service/charting_client
 
