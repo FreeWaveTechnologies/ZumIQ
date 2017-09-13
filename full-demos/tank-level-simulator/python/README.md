@@ -4,14 +4,14 @@
 
 The application has three components:
 
-1. The Sensor Client flow that:
+1. The Sensor Client app that:
     - Reads the potentiometer value using Modbus.
     - Illuminates LEDs indicating exceeded thresholds using Modbus.
     - Publishes the sensor data using MQTT.
 
 2. The Mosquitto MQTT broker
 
-3. The Charting Client flow that:
+3. The Charting Client app that:
     - Subscribes to the sensor data topic using MQTT.
     - Displays the sensor value and history in a web page.
 
