@@ -1,4 +1,4 @@
-# Radio Setup
+# Software and Radio Setup
 
 ## Configure Network
 
@@ -13,7 +13,7 @@ Setting up a path to the Internet depends on your network infrastructure and IT 
 
 ### Configure network settings on radio
 
-On the radio, you will need to configure the network settings on teh Network pages of the CLI to match your external network configuration. These examples will used the default radio settings:
+On the radio, you will need to configure the network settings on the Network pages of the CLI to match your external network configuration. These examples will used the default radio settings. (See the [ZumIQ Wiki](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki) or the [Z9-P/PE User Manual](http://support.freewave.com/knowledge-base/z9-pe-user-manual/) for details on how to configure the device):
 
     network.ip_address=192.168.111.100
     network.netmask=255.255.255.0
@@ -25,7 +25,7 @@ To test connectivity to the internet, type `ping 8.8.8.8` at the Linux command l
 
 ## Configure Serial Port
 
-Configure COM2 on a ZumLink radio to have the following settings (see the [ZumIQ Wiki](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki) or the [Z9-P/PE User Manual](http://support.freewave.com/knowledge-base/z9-pe-user-manual/) for details on how to configure the device):
+Configure COM2 on a ZumLink radio to have the following settings. (See the [ZumIQ Wiki](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki) or the [Z9-P/PE User Manual](http://support.freewave.com/knowledge-base/z9-pe-user-manual/) for details on how to configure the device):
 
 **Setting**      | **Value**
 ---------------- | -------------------
@@ -41,7 +41,7 @@ Com2.flowControl | off
 
 ## Configure Mosquitto
 
-Mosquitto is included by default with the ZumLink IPR. To set it up as a service, run the included install script:
+Mosquitto is included by default with ZumIQ. To set it up as a service, run the included install script:
 
     install-mosquitto.sh
 
