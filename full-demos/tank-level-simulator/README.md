@@ -1,6 +1,6 @@
 # Tank Level Simulator
 
-This application is a simple end-to-end demonstration of ZumLink IPR programmability. It simulates monitoring of a oil or water tank using a level sensor (represented by a potentiometer), and indicates when a high or low threshold has been exceeded by illuminating LEDs. It will also publish sensor data to an MQTT broker. A second app will subscribe to the MQTT broker and chart the level data in a web page.
+This application is a simple end-to-end demonstration of ZumIQ programmability. It simulates monitoring of a oil or water tank using a level sensor (represented by a potentiometer), and indicates when a high or low threshold has been exceeded by illuminating LEDs. It will also publish sensor data to an MQTT broker. A second app will subscribe to the MQTT broker and chart the level data in a web page.
 
 ## Goal:
 
@@ -17,7 +17,7 @@ Demonstrate a distributed application consisting of two linked applications:
 
 ## Approach
 
-Connect a potentiometer (simulating a tank level sensor) and two LEDs (for indicating exceeded thresholds) to a ZumIQ-enabled radio via an IOEX-4422 Serial Base.
+Connect a potentiometer (simulating a tank level sensor) and two LEDs (for indicating exceeded thresholds) to a ZumIQ-enabled Z9-PE radio via an IOEX-4422 Serial Base.
 
 Write a Sensor app on the radio that monitors tanks levels via Modbus polling of the Serial Base. If thresholds are exceeded, send Modbus commands to illuminate the threshold LEDs. Finally, transmit level sensor readings via MQTT.
 
