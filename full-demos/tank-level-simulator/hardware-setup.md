@@ -2,7 +2,7 @@
 
 **Hardware**                           | **Purpose**
 -------------------------------------- | -----------
-Powered ZumIQ-enabled ZumLink Z9-P/PE  | Radio with Linux Development Environment. This demonstration will use one radio for simplicity, but the Sensor and Client app can be run on separate radios if desired.
+Powered ZumIQ-enabled ZumLink Z9-PE    | Radio with Linux Development Environment. This demonstration will use one radio for simplicity, but the Sensor and Client app can be run on separate radios if desired.
 IOE-4422                               | [FreeWave I/O Expansion Serial Base](http://www.freewave.com/products/ioex/). Only the first five channels will be used, so n IOE-4404 or IOE-4440 could also be used.
 12V Power Supply                       | FreeWave P/N: EMD1280UX. Used to power the Serial Base
 USB Ethernet Adapter                   | Optional. Used to create a separate local network attached to a computer.
@@ -22,17 +22,17 @@ Jumper Wires                           | For wiring everything together.
 While the Serial Base can be configured using Modbus directly (See the [IO Expansion User Manual and Reference Guide](http://support.freewave.com/knowledge-base/io-expansion-module-user-manual/)), generally it is easier to use 
 [Tool Suite](http://www.freewave.com/tool-suite-programming-configuration-monitoring/).
 
-This document will only cover the steps required at a high level. For detailed information on using Tool Suite to configure the Serial Base, see the documentation at the links above.
+This document will only cover the procedure at a high level. For detailed information on using Tool Suite to configure the Serial Base, see the documentation at the links above.
 
 ### Basic Procedure
 
-1. Connect your computer to the Serial Base using an USB-to-Serial cable connected to the "Rainbow" data cable
-2. Power the Serial Base
-3. Launch Tool Suite
-4. Select the "Configuration" tool
-5. Select "Add Network", give it a name, and click "Next"
-6. Ensure that "Network Type" is "Serial", and click "Finish"
-7. Select the COM port associated with the USB-to-Serial cable, then select "Read Serial Base"
+1. Connect your computer to the Serial Base using an USB-to-Serial cable connected to the "Rainbow" data cable.
+2. Power the Serial Base.
+3. Launch Tool Suite.
+4. Select the "Configuration" tool.
+5. Select "Add Network", give it a name, and click "Next".
+6. Ensure that "Network Type" is "Serial", and click "Finish".
+7. Select the COM port associated with the USB-to-Serial cable, then select "Read Serial Base".
 8. Select the Universal Channels tab, and configure channels 1,2, and 3 as follows:
 
 #### Channel 1
@@ -60,7 +60,7 @@ Default Output       | Off
 
 #### Chanel 5
 
-This channel is used to monitor the output voltage from the potentiometer
+This channel is used to monitor the output voltage from the potentiometer.
 
 **Setting**        | **Value** 
 ------------------ | --------- 
@@ -95,8 +95,8 @@ Default Delay                   | 60
 Power Mode                      | Regular
 
 
-11. Click the "Program All" button to the upper-right of the tabs
-12. Disconnect the "Rainbow" cable from the USB-to-Serial cable and connect it to the RJ45-to-Serial cable, as described in [Hardware Setup](hardware-setup.md)
+11. Click the "Program All" button to the upper-right of the tabs.
+12. Disconnect the "Rainbow" cable from the USB-to-Serial cable and connect it to the RJ45-to-Serial cable, as described in [Hardware Setup](hardware-setup.md).
 
 ### Verifying Configuration
 
