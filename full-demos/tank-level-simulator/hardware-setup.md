@@ -1,3 +1,5 @@
+# Hardware Setup
+
 ## Equipment Used
 
 **Hardware**                           | **Purpose**
