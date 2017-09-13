@@ -1,0 +1,123 @@
+[
+    {
+        "id": "943e2fdd.b44c7",
+        "type": "tab",
+        "label": "Charting Client Flow"
+    },
+    {
+        "id": "8cf1be7d.aefb7",
+        "type": "mqtt in",
+        "z": "943e2fdd.b44c7",
+        "name": "Receive Sensor Value",
+        "topic": "general",
+        "qos": "2",
+        "broker": "56b543be.b91d7c",
+        "x": 262,
+        "y": 161,
+        "wires": [
+            [
+                "b9f6205.37550e",
+                "93ae5de6.4915a"
+            ]
+        ]
+    },
+    {
+        "id": "b9f6205.37550e",
+        "type": "ui_chart",
+        "z": "943e2fdd.b44c7",
+        "name": "",
+        "group": "3ae105a2.13fcaa",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "Sensor History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "0",
+        "ymax": "12",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 528,
+        "y": 203.20001220703125,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "93ae5de6.4915a",
+        "type": "ui_gauge",
+        "z": "943e2fdd.b44c7",
+        "name": "",
+        "group": "3ae105a2.13fcaa",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor State",
+        "label": "Volts",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "12",
+        "colors": [
+            "#ffff00",
+            "#000000",
+            "#ca3838"
+        ],
+        "seg1": "2",
+        "seg2": "10",
+        "x": 520,
+        "y": 118,
+        "wires": []
+    },
+    {
+        "id": "56b543be.b91d7c",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "Charting Client",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "3ae105a2.13fcaa",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "c15dca3f.60ba58",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "c15dca3f.60ba58",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Charting Client",
+        "icon": "dashboard"
+    }
+]

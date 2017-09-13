@@ -1,12 +1,25 @@
 # Python Tank Level Monitoring Simulator
 
-## Source Code
+## Application Overview
 
-The source code for each radio's application will be in the respective folders. "Sensor Client" is for the radio reading modbus registers and running Mosquitto, and  "Charting Client" is for the radio receiving and charting the sensor data. In this demo, both apps are run on the same radio for simplicity.
+The application has three components:
+
+1. The Sensor Client flow that:
+    - Reads the potentiometer value using Modbus.
+    - Illuminates LEDs indicating exceeded thresholds using Modbus.
+    - Publishes the sensor data using MQTT.
+
+2. The Mosquitto MQTT broker
+
+3. The Charting Client flow that:
+    - Subscribes to the sensor data topic using MQTT.
+    - Displays the sensor value and history in a web page.
+
+In this demo, all apps are run on the same ZumIQ-enabled device for simplicity. Each could be run on different radios if desired, by changing the IP address of the Mosquitto broker in the two Client applications.
 
 ## Installation
 
-The easiest way to get the apps running on a radio is to clone the Git repo and run the installation scripts included.
+The easiest way to get the apps running on a radio is to clone the Git repository and run the installation scripts included.
 
 1. Login to the Z9-PE as "devuser" (See [Logging In](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/Logging-In) for details)
 
@@ -14,11 +27,11 @@ The easiest way to get the apps running on a radio is to clone the Git repo and 
 
     git clone https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk.git
 
-3. Install Mosquitto using the built-in script
+3. Install Mosquitto using the built-in script:
 
     install-mosquitto.sh
 
-4. Run the demo script installers
+4. Run the demo script installers:
 
     cd zumlink-ipr-sdk/full-demos/tank-level-simulator/python/installation-scripts
     ./sensor-client-install.sh

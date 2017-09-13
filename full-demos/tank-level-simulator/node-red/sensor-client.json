@@ -1,0 +1,136 @@
+[
+    {
+        "id": "4459e320.74b94c",
+        "type": "tab",
+        "label": "Sensor Client Flow"
+    },
+    {
+        "id": "92417a1d.94d838",
+        "type": "modbus-read",
+        "z": "4459e320.74b94c",
+        "name": "Read Potentiometer",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "unitid": "",
+        "dataType": "InputRegister",
+        "adr": "30040",
+        "quantity": "2",
+        "rate": "1",
+        "rateUnit": "s",
+        "server": "499eabb5.be7b74",
+        "x": 182,
+        "y": 149,
+        "wires": [
+            [
+                "c4325d38.176b7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c4325d38.176b7",
+        "type": "function",
+        "z": "4459e320.74b94c",
+        "name": "Convert to Float",
+        "func": "\n// Convert raw register values into\n// floating point number\n\nvar low = msg.payload[1];\nvar high = msg.payload[0];\nvar fpnum = low|(high<<16);\nvar negative = (fpnum>>31)&1;\nvar exponent = (fpnum>>23)&0xFF;\nvar mantissa = (fpnum&0x7FFFFF);\n\nif(exponent==255) {\n    if(mantissa!==0) {\n        return Number.NaN;\n    }\n    return (negative) ? Number.NEGATIVE_INFINITY :\n     Number.POSITIVE_INFINITY;\n}\n\nif(exponent===0) {\n    exponent++;\n} else { \n    mantissa|=0x800000;\n}\n\nexponent-=127;\nvar ret=(mantissa*1.0/0x800000)*Math.pow(2,exponent);\n\nif(negative) {\n    ret=-ret;\n}\n\nreturn {payload:ret};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 412,
+        "y": 148,
+        "wires": [
+            [
+                "74a1d7be.b9dc78",
+                "d0bbf482.111d48"
+            ]
+        ]
+    },
+    {
+        "id": "74a1d7be.b9dc78",
+        "type": "function",
+        "z": "4459e320.74b94c",
+        "name": "Check Thresholds",
+        "func": "msg.value = msg.payload\n\nif(msg.payload < 2) {\n    msg.thresh = \"Lo thresh crossed\"\n    msg.payload = [false, true]\n} else if(msg.payload > 10) {\n    msg.thresh = \"Hi thresh crossed\"\n    msg.payload = [true, false]\n} else {\n    msg.payload = [false, false]\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 654.0000305175781,
+        "y": 146,
+        "wires": [
+            [
+                "3ec5e9fe.466e86"
+            ]
+        ]
+    },
+    {
+        "id": "3ec5e9fe.466e86",
+        "type": "modbus-write",
+        "z": "4459e320.74b94c",
+        "name": "Set LEDs",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "unitid": "1",
+        "dataType": "MCoils",
+        "adr": "1",
+        "quantity": "2",
+        "server": "499eabb5.be7b74",
+        "x": 863,
+        "y": 148,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d0bbf482.111d48",
+        "type": "mqtt out",
+        "z": "4459e320.74b94c",
+        "name": "Publish Sensor Value",
+        "topic": "general",
+        "qos": "",
+        "retain": "",
+        "broker": "922fb7f4.00cf38",
+        "x": 661.300048828125,
+        "y": 219.20001220703125,
+        "wires": []
+    },
+    {
+        "id": "499eabb5.be7b74",
+        "type": "modbus-client",
+        "z": "",
+        "name": "",
+        "clienttype": "simpleser",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "tcpHost": "192.168.137.200",
+        "tcpPort": "5042",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyO1",
+        "serialType": "RTU",
+        "serialBaudrate": "19200",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectTimeout": 2000
+    },
+    {
+        "id": "922fb7f4.00cf38",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "Sensor Client",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    }
+]
