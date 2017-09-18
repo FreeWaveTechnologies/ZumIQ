@@ -39,6 +39,9 @@ The Node-RED demo can be set up using built-in scripts on the ZumIQ-enabled Z9-P
 ```bash
     install-npm-modules.sh
 ```
+
+**NOTE:** You may encounter an error when running the above script. Should this occur, run `install-npm-modules.sh` a second time to complete the installation.
+
 6. Once the script completes, wait 30 seconds to allow the serivces to start up. Then, open a web browser to `http://192.168.111.100:1880` (use the IP address of your device if different).
 
 7. From the menu in the upper-right corner of the Node-RED webpage, select Import > Clipboard.
