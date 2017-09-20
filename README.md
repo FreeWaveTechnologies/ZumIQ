@@ -8,6 +8,8 @@ What is ZumIQ? It's a Linux-based programmable application environment running o
 
 To learn more about the ZumIQ, see the [product page](http://www.freewave.com/products/zumlink-ipr-iiot-programmable-radio/). This GitHub repo focuses on the programmability of the radio platform from the perspective of application developers.
 
+This repository, including all documentation and sample code, references capabilities of firmware version **1.0.6.0** (FWT1060TB.68).
+
 Full Documentation
 ------------------
 
