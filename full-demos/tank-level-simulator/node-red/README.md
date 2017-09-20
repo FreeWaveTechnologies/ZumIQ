@@ -21,7 +21,7 @@ In this demo, all apps are run on the same ZumIQ-enabled device for simplicity. 
 
 The Node-RED demo can be set up using built-in scripts on the ZumIQ-enabled Z9-P Series device.
 
-1. Login to the ZumIQ-enabled device as "devuser" (See [Logging In](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/Logging-In) for details)
+1. Login to the ZumIQ-enabled device as "devuser" (See [Logging In](https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Logging-In) for details)
 
 2. Set the date (this can be skipped if NTP is already configured):
 ```bash

@@ -21,11 +21,11 @@ In this demo, all apps are run on the same ZumIQ-enabled device for simplicity. 
 
 The easiest way to get the apps running on a radio is to clone the Git repository and run the installation scripts included.
 
-1. Login to the Z9-PE as "devuser" (See [Logging In](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/Logging-In) for details)
+1. Login to the Z9-PE as "devuser" (See [Logging In](https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Logging-In) for details)
 
 2. Clone the git repo with the demo code:
 ```bash
-    git clone https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk.git
+    git clone https://github.com/FreeWaveTechnologies/ZumIQ.git
 ```
 3. Install Mosquitto using the built-in script:
 
@@ -33,7 +33,7 @@ The easiest way to get the apps running on a radio is to clone the Git repositor
 
 4. Run the demo script installers:
 ```bash
-    cd zumlink-ipr-sdk/full-demos/tank-level-simulator/python/installation-scripts
+    cd ZumIQ/full-demos/tank-level-simulator/python/installation-scripts
     ./sensor-client-install.sh
     ./charting-client-install.sh
 ```

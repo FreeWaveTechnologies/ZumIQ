@@ -1,4 +1,4 @@
-<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki/images/NEWZUMLINKHOME.png"/>
+<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/ZumIQ/wiki/images/NEWZUMLINKHOME.png"/>
 
 # ZumIQ Sample Code and Developer Documentation
 
@@ -15,7 +15,7 @@ See the [Samples](./samples) for basic code samples.
 
 See the [Full Demos](./full-demos) for examples of complete, distributed applications.
 
-See the [Wiki](https://github.com/FreeWaveTechnologies/zumlink-ipr-sdk/wiki) for general developer documentation.
+See the [Wiki](https://github.com/FreeWaveTechnologies/ZumIQ/wiki) for general developer documentation.
 
 
 
