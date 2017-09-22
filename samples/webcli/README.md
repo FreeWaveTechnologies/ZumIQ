@@ -18,4 +18,4 @@ This sample uses the "requests" Python module. To install it, execute the follow
     python webcli_config.py
 ```
 
-The progam will simply run thorugh a list of demonstrations and print the output to the console. It can be run either on the ZumLink IPR from the developer environment, or from a remote computer, as long as the IP address of the device is routable.
+The progam will simply run thorugh a list of demonstrations and print the output to the console. It can be run either directly in the ZumIQ developer environment, or from a remote computer, as long as the IP address of the device is routable.

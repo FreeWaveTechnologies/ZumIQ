@@ -56,7 +56,7 @@ CH5_REGISTER_COUNT = 2
 # Set up connection to Serial Base (via COM2)
 serialbase = minimalmodbus.Instrument('/dev/ttyO1', 1)
 
-''' After creating a client we connect to the ZumLink IPR itself, where the Mosquitto
+''' After creating a client we connect to the Z9-PE itself, where the Mosquitto
 broker is running, and publish sensor data to this broker on port 1883 on topic demo/sensors'''
 # Set up connection to MQTT broker
 mqttc = mqtt.Client("Sensor Levels")

@@ -8,4 +8,4 @@ The "cliBridge_config.py" script demonstrates bare-bones access to the FreeWave 
 
 The program will display a menu of feature to demonstrate. It will run the selected demonstration and then exit.
 
-Note that this program must be run on the ZumLink IPR from the developer environment, since it relies on running the **cliBridge** command directly in a new process.
+Note that this program must be run on the ZumIQ-enabled Z9-P Series radio from the developer environment, since it relies on running the **cliBridge** command directly in a new process.
