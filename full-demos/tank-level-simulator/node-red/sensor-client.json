@@ -1,13 +1,13 @@
 [
     {
-        "id": "4459e320.74b94c",
+        "id": "652b2a0e.3e9fe4",
         "type": "tab",
         "label": "Sensor Client Flow"
     },
     {
-        "id": "92417a1d.94d838",
+        "id": "86353418.7e9a78",
         "type": "modbus-read",
-        "z": "4459e320.74b94c",
+        "z": "652b2a0e.3e9fe4",
         "name": "Read Potentiometer",
         "showStatusActivities": false,
         "showErrors": false,
@@ -17,20 +17,20 @@
         "quantity": "2",
         "rate": "1",
         "rateUnit": "s",
-        "server": "499eabb5.be7b74",
+        "server": "765eeb2d.053024",
         "x": 182,
         "y": 149,
         "wires": [
             [
-                "c4325d38.176b7"
+                "40dbcfc.d947a3"
             ],
             []
         ]
     },
     {
-        "id": "c4325d38.176b7",
+        "id": "40dbcfc.d947a3",
         "type": "function",
-        "z": "4459e320.74b94c",
+        "z": "652b2a0e.3e9fe4",
         "name": "Convert to Float",
         "func": "\n// Convert raw register values into\n// floating point number\n\nvar low = msg.payload[1];\nvar high = msg.payload[0];\nvar fpnum = low|(high<<16);\nvar negative = (fpnum>>31)&1;\nvar exponent = (fpnum>>23)&0xFF;\nvar mantissa = (fpnum&0x7FFFFF);\n\nif(exponent==255) {\n    if(mantissa!==0) {\n        return Number.NaN;\n    }\n    return (negative) ? Number.NEGATIVE_INFINITY :\n     Number.POSITIVE_INFINITY;\n}\n\nif(exponent===0) {\n    exponent++;\n} else { \n    mantissa|=0x800000;\n}\n\nexponent-=127;\nvar ret=(mantissa*1.0/0x800000)*Math.pow(2,exponent);\n\nif(negative) {\n    ret=-ret;\n}\n\nreturn {payload:ret};\n",
         "outputs": 1,
@@ -39,15 +39,15 @@
         "y": 148,
         "wires": [
             [
-                "74a1d7be.b9dc78",
-                "d0bbf482.111d48"
+                "de4d5145.06167",
+                "8efc39a9.a19628"
             ]
         ]
     },
     {
-        "id": "74a1d7be.b9dc78",
+        "id": "de4d5145.06167",
         "type": "function",
-        "z": "4459e320.74b94c",
+        "z": "652b2a0e.3e9fe4",
         "name": "Check Thresholds",
         "func": "msg.value = msg.payload\n\nif(msg.payload < 2) {\n    msg.thresh = \"Lo thresh crossed\"\n    msg.payload = [false, true]\n} else if(msg.payload > 10) {\n    msg.thresh = \"Hi thresh crossed\"\n    msg.payload = [true, false]\n} else {\n    msg.payload = [false, false]\n}\n\nreturn msg;",
         "outputs": 1,
@@ -56,14 +56,14 @@
         "y": 146,
         "wires": [
             [
-                "3ec5e9fe.466e86"
+                "b89da3cf.f2705"
             ]
         ]
     },
     {
-        "id": "3ec5e9fe.466e86",
+        "id": "b89da3cf.f2705",
         "type": "modbus-write",
-        "z": "4459e320.74b94c",
+        "z": "652b2a0e.3e9fe4",
         "name": "Set LEDs",
         "showStatusActivities": false,
         "showErrors": false,
@@ -71,7 +71,7 @@
         "dataType": "MCoils",
         "adr": "1",
         "quantity": "2",
-        "server": "499eabb5.be7b74",
+        "server": "765eeb2d.053024",
         "x": 863,
         "y": 148,
         "wires": [
@@ -80,20 +80,30 @@
         ]
     },
     {
-        "id": "d0bbf482.111d48",
+        "id": "8efc39a9.a19628",
         "type": "mqtt out",
-        "z": "4459e320.74b94c",
+        "z": "652b2a0e.3e9fe4",
         "name": "Publish Sensor Value",
         "topic": "general",
         "qos": "",
         "retain": "",
-        "broker": "922fb7f4.00cf38",
+        "broker": "d40b9cb.ad1e56",
         "x": 661.300048828125,
         "y": 219.20001220703125,
         "wires": []
     },
     {
-        "id": "499eabb5.be7b74",
+        "id": "89b97db8.2214f",
+        "type": "comment",
+        "z": "652b2a0e.3e9fe4",
+        "name": "License",
+        "info": "BSD 2-Clause License\n\nCopyright (c) 2017, FreeWave Technologies\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n\n* Redistributions of source code must retain the above copyright notice, this\n  list of conditions and the following disclaimer.\n\n* Redistributions in binary form must reproduce the above copyright notice,\n  this list of conditions and the following disclaimer in the documentation\n  and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.",
+        "x": 216,
+        "y": 317,
+        "wires": []
+    },
+    {
+        "id": "765eeb2d.053024",
         "type": "modbus-client",
         "z": "",
         "name": "",
@@ -116,7 +126,7 @@
         "reconnectTimeout": 2000
     },
     {
-        "id": "922fb7f4.00cf38",
+        "id": "d40b9cb.ad1e56",
         "type": "mqtt-broker",
         "z": "",
         "broker": "127.0.0.1",
