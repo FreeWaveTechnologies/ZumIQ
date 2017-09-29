@@ -13,9 +13,11 @@ This repository, including all documentation and sample code, references capabil
 Full Documentation
 ------------------
 
-See the [Samples](./samples) for basic code samples.
+See [Samples](./samples) for basic code samples.
 
-See the [Full Demos](./full-demos) for examples of complete, distributed applications.
+See [Full Demos](./full-demos) for examples of complete, distributed applications.
+
+See [Troubleshooting](./troubleshooting) for scripts and procedures to work around known issues.
 
 See the [Wiki](https://github.com/FreeWaveTechnologies/ZumIQ/wiki) for general developer documentation.
 
