@@ -42,7 +42,9 @@ The Node-RED demo can be set up using built-in scripts on the ZumIQ-enabled Z9-P
 
 **NOTE:** You may encounter an error when running the above script. Should this occur, run `install-npm-modules.sh` a second time to complete the installation.
 
-6. Once the script completes, wait 30 seconds to allow the serivces to start up. Then, open a web browser to `http://192.168.111.100:1880` (use the IP address of your device if different).
+6. Once the script completes, wait 30 seconds to allow the services to start up. Then, open a web browser to `http://192.168.111.100:1880` (use the IP address of your device if different).
+
+**IMPORTANT:** - There is a bug in Node.js v8 that can cause web requests to timeout after 1 second. This can affect the loading of the Node-RED website on slow or high-latency radio networks. As a workaround, run the [*install-node7.sh*](../../../troubleshooting/install-node7.sh) script to replace Node.js v8 with Node.js v7. See [Known Issues](https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Known-Issues) for more information.
 
 7. From the menu in the upper-right corner of the Node-RED webpage, select Import > Clipboard.
 
