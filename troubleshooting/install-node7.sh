@@ -10,3 +10,4 @@ curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key > /tmp/nodesource.g
 sudo apt-key add /tmp/nodesource.gpg.key
 sudo apt-get install -y nodejs
 rm ~/bin/nodejs_setup
+
