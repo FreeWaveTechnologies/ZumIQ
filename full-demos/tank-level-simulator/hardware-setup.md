@@ -17,7 +17,7 @@ LEDs (x2)                              | For indicating when tank level exceeds 
 560Ω 0.5W resistors (2x)               | To reduce current across LEDs.
 Jumper Wires                           | For wiring everything together.
 
-<img src="../images/parts.png" />
+<img src="images/parts.png" />
 
 ## Serial Base Setup
 
@@ -114,9 +114,9 @@ Next, set up the components on a breadboard and connect them to the channels on 
 
 **NOTE:** When configured as "Sensor Power", a channel will output the same voltage as supplied to the Serial Base, in this case 12V, necessitating the current-limiting resistors.
 
-<img src="../images/schematic.png" />
+<img src="images/schematic.png" />
 
-<img width="75%" src="../images/breadboard.png" />
+<img width="75%" src="images/breadboard.png" />
 
 ## Next Steps
 
