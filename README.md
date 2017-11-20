@@ -10,6 +10,8 @@ To learn more about the ZumIQ, see the [product page](http://www.freewave.com/pr
 
 This repository, including all documentation and sample code, references capabilities of firmware version **1.0.6.0** (FWT1060TB.68).
 
+If you've just just obtained a new ZumIQ-enabled radio, start with **[Activating ZumIQ](https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Activating-ZumIQ)** to enable developer logins, then take a look at the documentation resources below.
+
 Full Documentation
 ------------------
 
