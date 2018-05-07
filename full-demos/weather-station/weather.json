@@ -1,0 +1,782 @@
+[
+    {
+        "id": "d6377490.4ec828",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "11176b3a.d0dc85",
+        "type": "ui_group",
+        "z": "",
+        "name": "Current Weather",
+        "tab": "cb454347.83a01",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "cb454347.83a01",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Weather Station",
+        "icon": "dashboard"
+    },
+    {
+        "id": "27e884c9.bceeec",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "Helvetica Neue",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "Helvetica Neue",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "Helvetica Neue"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "64a35855.daaf08",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperature",
+        "tab": "cb454347.83a01",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "fc75dcd5.6a7c8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Wind",
+        "tab": "cb454347.83a01",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "23f829ce.6781a6",
+        "type": "openweathermap",
+        "z": "d6377490.4ec828",
+        "name": "Weather Data Server",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "",
+        "country": "",
+        "language": "en",
+        "x": 276.1001281738281,
+        "y": 235.6000633239746,
+        "wires": [
+            [
+                "11ae19fb.ac0e26",
+                "cbe7ff9.2e89",
+                "170d8fae.ea7cd",
+                "32a07131.63a03e",
+                "80217994.09f8f8",
+                "973fc4d1.2df248",
+                "6ae08f56.6d449",
+                "1b8c0dd2.f852f2"
+            ]
+        ]
+    },
+    {
+        "id": "cae37a34.7de208",
+        "type": "inject",
+        "z": "d6377490.4ec828",
+        "name": "App Start",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "x": 116.10002899169922,
+        "y": 51.00003147125244,
+        "wires": [
+            [
+                "435cd096.cef08"
+            ]
+        ]
+    },
+    {
+        "id": "435cd096.cef08",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Select City & Country",
+        "rules": [
+            {
+                "t": "set",
+                "p": "location.city",
+                "pt": "msg",
+                "to": "Boulder",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "location.country",
+                "pt": "msg",
+                "to": "US",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 224.10009765625,
+        "y": 147.20001125335693,
+        "wires": [
+            [
+                "23f829ce.6781a6"
+            ]
+        ]
+    },
+    {
+        "id": "11ae19fb.ac0e26",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Extract Temperature",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.tempc",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 573.1000518798828,
+        "y": 268.20001220703125,
+        "wires": [
+            [
+                "f1b0c905.0e6448"
+            ]
+        ]
+    },
+    {
+        "id": "cbe7ff9.2e89",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Extract Weather",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.weather",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 585.0000305175781,
+        "y": 414.0000629425049,
+        "wires": [
+            [
+                "6e009b51.217194"
+            ]
+        ]
+    },
+    {
+        "id": "170d8fae.ea7cd",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Extract Windspeed",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.windspeed",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 592.0000305175781,
+        "y": 613.0000190734863,
+        "wires": [
+            [
+                "2c3d0a17.482b46",
+                "545b7faf.5987c"
+            ]
+        ]
+    },
+    {
+        "id": "2c3d0a17.482b46",
+        "type": "ui_chart",
+        "z": "d6377490.4ec828",
+        "name": "Dashboard - Wind Chart",
+        "group": "fc75dcd5.6a7c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 1076.1001014709473,
+        "y": 626.6001167297363,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ada88fbd.352c8",
+        "type": "ui_gauge",
+        "z": "d6377490.4ec828",
+        "name": "Dashboard - Temperature",
+        "group": "64a35855.daaf08",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "",
+        "label": "",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "110",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1144.0999603271484,
+        "y": 239.6001091003418,
+        "wires": []
+    },
+    {
+        "id": "6e009b51.217194",
+        "type": "ui_text",
+        "z": "d6377490.4ec828",
+        "group": "11176b3a.d0dc85",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Dashboard - Weather",
+        "label": "Current Weather :",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 820.1000900268555,
+        "y": 412.8000144958496,
+        "wires": []
+    },
+    {
+        "id": "f5b78a31.e1e938",
+        "type": "ui_chart",
+        "z": "d6377490.4ec828",
+        "name": "Temperature - 12hrs",
+        "group": "64a35855.daaf08",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 1292.3999557495117,
+        "y": 306.05006217956543,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "545b7faf.5987c",
+        "type": "ui_gauge",
+        "z": "d6377490.4ec828",
+        "name": "Dashboard - Wind Speed",
+        "group": "fc75dcd5.6a7c8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "MPH",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 873.9000129699707,
+        "y": 680.8001308441162,
+        "wires": []
+    },
+    {
+        "id": "f1b0c905.0e6448",
+        "type": "function",
+        "z": "d6377490.4ec828",
+        "name": "Convert C to F (optional)",
+        "func": "var tempc = msg.payload;\n    tempf = tempc * 9/5 + 32;\n    tempf = Math.round(tempf * 10) / 10;\n    msg.payload = tempf;\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 860.1001129150391,
+        "y": 267.4000358581543,
+        "wires": [
+            [
+                "ada88fbd.352c8",
+                "f5b78a31.e1e938"
+            ]
+        ]
+    },
+    {
+        "id": "e2460e98.c2bad",
+        "type": "e-mail",
+        "z": "d6377490.4ec828",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "name": "",
+        "dname": "",
+        "x": 1702.1001739501953,
+        "y": 123.60000419616699,
+        "wires": []
+    },
+    {
+        "id": "32a07131.63a03e",
+        "type": "function",
+        "z": "d6377490.4ec828",
+        "name": "Ideal Weather Criteria",
+        "func": "if (msg.payload.tempc > 20 && msg.payload.weather == 'clear sky' && msg.payload.windspeed <= 15) {\n\tmsg.payload = 1;\n} else {\n\tmsg.payload = 0;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570.1000595092773,
+        "y": 72.60000610351562,
+        "wires": [
+            [
+                "fd466a1e.46ae48"
+            ]
+        ]
+    },
+    {
+        "id": "fd466a1e.46ae48",
+        "type": "switch",
+        "z": "d6377490.4ec828",
+        "name": "Is weather ideal?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 851.1001129150391,
+        "y": 73.20001888275146,
+        "wires": [
+            [
+                "951dc169.320c7"
+            ]
+        ]
+    },
+    {
+        "id": "951dc169.320c7",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Create E-mail Message",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "The weather looks great today!",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Today's Weather",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1118.0999603271484,
+        "y": 73.00003051757812,
+        "wires": [
+            [
+                "a49ce03f.31b7b"
+            ]
+        ]
+    },
+    {
+        "id": "aeb093da.8dbbb",
+        "type": "switch",
+        "z": "d6377490.4ec828",
+        "name": "Is weather poor?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 845.1999969482422,
+        "y": 177.00000953674316,
+        "wires": [
+            [
+                "460a3cdb.00bb44"
+            ]
+        ]
+    },
+    {
+        "id": "80217994.09f8f8",
+        "type": "function",
+        "z": "d6377490.4ec828",
+        "name": "Poor Weather Criteria",
+        "func": "if (msg.payload.tempc < 0 && msg.payload.weather == 'snow' && msg.payload.windspeed > 15) {\n\tmsg.payload = 1;\n} else {\n\tmsg.payload = 0;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 575.2000198364258,
+        "y": 176.00000953674316,
+        "wires": [
+            [
+                "aeb093da.8dbbb"
+            ]
+        ]
+    },
+    {
+        "id": "460a3cdb.00bb44",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Create E-mail Message",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "The weather looks poor today =(",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Today's Weather",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120.4000091552734,
+        "y": 176.00000953674316,
+        "wires": [
+            [
+                "a49ce03f.31b7b"
+            ]
+        ]
+    },
+    {
+        "id": "973fc4d1.2df248",
+        "type": "debug",
+        "z": "d6377490.4ec828",
+        "name": "Debug - see server response",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 251.10008239746094,
+        "y": 330.0000343322754,
+        "wires": []
+    },
+    {
+        "id": "6ae08f56.6d449",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Extract Weather",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.detail",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 583.9999847412109,
+        "y": 511.0000171661377,
+        "wires": [
+            [
+                "70cbd34d.5c254c"
+            ]
+        ]
+    },
+    {
+        "id": "70cbd34d.5c254c",
+        "type": "ui_text",
+        "z": "d6377490.4ec828",
+        "group": "11176b3a.d0dc85",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Dashboard - Weather Detail",
+        "label": "Description :",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 859.9999923706055,
+        "y": 512.0000171661377,
+        "wires": []
+    },
+    {
+        "id": "5616539e.18b1bc",
+        "type": "ui_button",
+        "z": "d6377490.4ec828",
+        "name": "",
+        "group": "11176b3a.d0dc85",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear Wind Data",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "",
+        "x": 818.1000137329102,
+        "y": 594.0000295639038,
+        "wires": [
+            [
+                "2c3d0a17.482b46"
+            ]
+        ]
+    },
+    {
+        "id": "c7a5349f.d8b1e8",
+        "type": "ui_button",
+        "z": "d6377490.4ec828",
+        "name": "",
+        "group": "11176b3a.d0dc85",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear Temp Data",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "",
+        "x": 1032.7997512817383,
+        "y": 350.15003967285156,
+        "wires": [
+            [
+                "f5b78a31.e1e938"
+            ]
+        ]
+    },
+    {
+        "id": "a49ce03f.31b7b",
+        "type": "delay",
+        "z": "d6377490.4ec828",
+        "name": "Limit to one e-mail per day",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "day",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1452.8998718261719,
+        "y": 124.20000743865967,
+        "wires": [
+            [
+                "e2460e98.c2bad"
+            ]
+        ]
+    },
+    {
+        "id": "1b8c0dd2.f852f2",
+        "type": "change",
+        "z": "d6377490.4ec828",
+        "name": "Extract Location",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.location",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 586.3999328613281,
+        "y": 340.00002098083496,
+        "wires": [
+            [
+                "7ff90bc4.7cc304"
+            ]
+        ]
+    },
+    {
+        "id": "7ff90bc4.7cc304",
+        "type": "ui_text",
+        "z": "d6377490.4ec828",
+        "group": "11176b3a.d0dc85",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Dashboard Location",
+        "label": "Location :",
+        "format": "{{msg.payload}}, Colorado",
+        "layout": "row-left",
+        "x": 819.5000228881836,
+        "y": 339.6000099182129,
+        "wires": []
+    }
+]
