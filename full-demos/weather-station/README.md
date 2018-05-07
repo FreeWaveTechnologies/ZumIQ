@@ -5,13 +5,15 @@ This app will request local weather data from an online source, display weather 
 ##### How to get started:
 ##### Setting up your Windows based computer :
 The following section will grant ZumIQ access to your computer's Wi-Fi connection and configure the correct IP address for connection sharing.
-1. Connect to a Wi-Fi network
-2. Open Network and Sharing Center
-3. Double-click the Wireless Network Connection in use
-4. Click Properties then the Sharing tab
-5. Click "Allow other network users to connect through this computer's internet connection"
-6. Select "Local Area Connection" as the Home networking connection
-7. Click OK then Close
+1. Undock your laptop from its docking station
+2. Connect to your ZumIQ hardware with an Ethernet cable
+3. Connect to a Wi-Fi network
+4. Open Network and Sharing Center
+5. Double-click the Wireless Network Connection in use
+6. Click Properties then the Sharing tab
+7. Click "Allow other network users to connect through this computer's internet connection"
+8. Select "Local Area Connection" as the Home networking connection
+9. Click OK then Close
 ##### Setting up ZumIQ on a FreeWave AppServer or ZumLink Radio
 
 The following section will setup the ZumIQ environment to run the Weather Station App.
@@ -27,7 +29,7 @@ The following section will setup the ZumIQ environment to run the Weather Statio
 8. Log in with _admin_ for both user and password
 9. Type the following command and press enter: _rtereset hard_
 10. Type the following command and press enter: _reset now_
--The hardware will take several minutes to reboot
+11. The hardware will take several minutes to reboot
 
 
 ##### Installing Node-RED on a FreeWave AppServer or ZumLink Radio
@@ -45,7 +47,7 @@ The following section will install Node-RED. Some commands may take several minu
 ##### Accessing Node-RED on a FreeWave AppServer or ZumLink Radio
 
 The following section will show you how to access the Node-RED interface and load the demonstration app.
-1. Open a web browser and navigate to _192.168.137:1880_ or click [here](192.168.137.2:1880)
+1. Open a web browser and navigate to _192.168.137.2:1880_ or click [here](192.168.137.2:1880)
 2. Click the button in the upper right hand corner > import > clipboard
 3. Copy the contents of the *weather.json* file and paste into the  window.
 4. Click Import then click Flow 1 at the top tabs
@@ -53,8 +55,8 @@ The following section will show you how to access the Node-RED interface and loa
 ##### Creating an OpenWeather Account to Access Weather Data
 You must create an account and generate an API key in order to access weather data.
 
-1. Navigate to [here](https://home.openweathermap.org/users) and create an account – I ended up going to: https://home.openweathermap.org/users/sign_in 
-2. After you gain access to the OpenWeather website click [here](https://home.openweathermap.org/api_keys)
+1. Navigate to [here](https://home.openweathermap.org/users/sign_in) and create an account
+2. After you gain access to the OpenWeather website click [here](https://home.openweathermap.org/users)
 3. Generate an API key. It will look something like _5609f402306022198e939a70178249d4_
 4. Highlight your key then right click copy
 5. Open the Node-RED interface and double click on the Weather Data Server node
