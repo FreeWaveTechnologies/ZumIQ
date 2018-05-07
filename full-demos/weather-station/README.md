@@ -20,8 +20,8 @@ The following section will setup the ZumIQ environment to run the Weather Statio
 
 1. Connect to the ZumLink via a MircoUSB cable
 2. Open the zumLink file storage _My Computer > ZumLink>(serial number)_
-3. Save the following file to your desktop (link goes here)
-4. Drag and drop file into the ZumLink file directory containing the system text files
+3. Save the _config.cfg_ at the top of the page to your desktop  by right-clicking and selecting "save as"
+4. Drag and drop the _config.cfg_ file into the ZumLink file directory containing the system text files
 5. Download & install the PuTTY terminal emulator 
 [Download Here](https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.70-installer.msi)
 6. Launch PuTTY
@@ -49,7 +49,7 @@ The following section will install Node-RED. Some commands may take several minu
 The following section will show you how to access the Node-RED interface and load the demonstration app.
 1. Open a web browser and navigate to _192.168.137.2:1880_ or click [here](192.168.137.2:1880)
 2. Click the button in the upper right hand corner > import > clipboard
-3. Copy the contents of the *weather.json* file and paste into the  window.
+3. Copy the contents of the *weather.json* file found above and paste into the import window.
 4. Click Import then click Flow 1 at the top tabs
 5. Deploy the app by click the Deploy button at the top
 ##### Creating an OpenWeather Account to Access Weather Data
