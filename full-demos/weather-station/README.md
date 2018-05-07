@@ -47,7 +47,7 @@ The following section will install Node-RED. Some commands may take several minu
 ##### Accessing Node-RED on a FreeWave AppServer or ZumLink Radio
 
 The following section will show you how to access the Node-RED interface and load the demonstration app.
-1. Open a web browser and navigate to _192.168.137.2:1880_ or click [here](192.168.137.2:1880)
+1. Open a web browser and navigate to _192.168.137.2:1880_ 
 2. Click the button in the upper right hand corner > import > clipboard
 3. Copy the contents of the *weather.json* file found above and paste into the import window.
 4. Click Import then click Flow 1 at the top tabs
@@ -61,4 +61,5 @@ You must create an account and generate an API key in order to access weather da
 4. Highlight your key then right click copy
 5. Open the Node-RED interface and double click on the Weather Data Server node
 6. Paste your API key into the API Key field then click Done and Deploy.
+7. They API key may take up to 20 minutes to activate
 
