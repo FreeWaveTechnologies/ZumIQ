@@ -50,8 +50,9 @@ The following section will show you how to access the Node-RED interface and loa
 1. Open a web browser and navigate to _192.168.137.2:1880_ 
 2. Click the button in the upper right hand corner > import > clipboard
 3. Copy the contents of the *weather.json* file found above and paste into the import window.
-4. Click Import then click Flow 1 at the top tabs
-5. Deploy the app by click the Deploy button at the top
+4. Be sure to copy and paste all 782 lines of code including start and stop brackets
+5. Click Import then click Flow 1 at the top tabs
+6. Deploy the app by click the Deploy button at the top
 ##### Creating an OpenWeather Account to Access Weather Data
 You must create an account and generate an API key in order to access weather data.
 
