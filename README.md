@@ -1,19 +1,24 @@
-<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/ZumIQ/wiki/images/NEWZUMLINKHOME.png"/>
+<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Z9-PE-Front-Left-Angle-wo-Cap.png"/>
+<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/ZumIQ/wiki/ZIQ-PE-Front-Left-Angle.png"/>
 
 # ZumIQ Sample Code and Developer Documentation
 
 Welcome to the ZumIQ developer site.
 
-What is ZumIQ? It's a Linux-based programmable application environment running on supported ZumLink Z9-P Series radios.
+What is ZumIQ? It's a Linux-based programmable application environment running on supported FreeWave products.
 
-To learn more about the ZumIQ, see the [product page](http://www.freewave.com/products/zumlink-ipr-iiot-programmable-radio/) and check out the FreeWave [YouTube Channel](https://www.youtube.com/channel/UC1e5rO5ZytgOgpAd1q8GVEA/featured). This GitHub repo focuses on the programmability of the radio platform from the perspective of application developers.
+To learn more about ZumIQ, see the [ZumLink Application Environment](http://www.freewave.com/products/zumiq/) product page and check out the FreeWave [YouTube Channel](https://www.youtube.com/channel/UC1e5rO5ZytgOgpAd1q8GVEA/featured). This GitHub repository focuses on the programmability of the environment from the perspective of application developers.
+
+## Supported Products
+
+* [ZumLink 900 Series Z9-P and Z9-PE](http://www.freewave.com/products/zumlink-900-series-z9-p-pe/)
+* [ZumIQ Application Server ZIQ-P and ZIQ-PE](http://www.freewave.com/products/zumiq-app-server/)
 
 This repository, including all documentation and sample code, references capabilities of firmware version **1.0.6.0** (FWT1060TB.68).
 
 If you've just just obtained a new ZumIQ-enabled radio, start with **[Activating ZumIQ](https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Activating-ZumIQ)** to enable developer logins, then take a look at the documentation resources below.
 
-Full Documentation
-------------------
+## Full Documentation
 
 See [Samples](./samples) for basic code samples.
 
