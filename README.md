@@ -1,5 +1,4 @@
-<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Z9-PE-Front-Left-Angle-wo-Cap.png"/>
-<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/ZumIQ/wiki/ZIQ-PE-Front-Left-Angle.png"/>
+<img height=30% width=30% src="https://github.com/FreeWaveTechnologies/ZumIQ/wiki/images/NEWZUMLINKHOME.png"/>
 
 # ZumIQ Sample Code and Developer Documentation
 
