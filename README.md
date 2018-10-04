@@ -11,9 +11,10 @@ To learn more about ZumIQ, see the [ZumLink Application Environment](http://www.
 ## Supported Products
 
 * [ZumLink 900 Series Z9-P and Z9-PE](http://www.freewave.com/products/zumlink-900-series-z9-p-pe/)
+* [ZumLink 900 Series Z9-PC and Z9-PC-SR001](http://www.freewave.com/products/zumlink-900-series-z9-pc-sr001/)
 * [ZumIQ Application Server ZIQ-P and ZIQ-PE](http://www.freewave.com/products/zumiq-app-server/)
 
-This repository, including all documentation and sample code, references capabilities of firmware version **1.0.6.0** (FWT1060TB.68).
+This repository, including all documentation and sample code, references capabilities of firmware version **1.1.0** (FWT1100TP.2). See the **[Release Notes](https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Release-Notes)** for additional information and differences from previous releases.
 
 If you've just just obtained a new ZumIQ-enabled radio, start with **[Activating ZumIQ](https://github.com/FreeWaveTechnologies/ZumIQ/wiki/Activating-ZumIQ)** to enable developer logins, then take a look at the documentation resources below.
 
